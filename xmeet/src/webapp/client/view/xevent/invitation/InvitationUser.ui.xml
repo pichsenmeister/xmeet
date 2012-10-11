@@ -1,0 +1,42 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+	.username {
+		max-width: 135px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-weight: bold;
+	}
+	.name {
+		max-width: 135px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	.panel {
+		border-radius: 5px;
+		background: #fff6d6;
+		float: left;
+		margin: 5px;
+		cursor: pointer;
+	}
+	.panel:hover {
+		background: #fff2bf;
+	}
+		
+	</ui:style>
+	<g:LayoutPanel ui:field="panel" width="200px" height="40px" styleName="{style.panel}">
+		<g:layer left="0px" width="20px" top="10px" bottom="0px">
+			<g:CheckBox ui:field="checkBox"/>
+		</g:layer>
+		<g:layer left="20px" width="32px" top="4px" height="32px">
+			<g:Image width="32px" height="32px" ui:field="image"></g:Image>
+		</g:layer>
+		<g:layer right="0px" left="55px" top="5px" height="15px">
+			<g:Label ui:field="username" addStyleNames="{style.username}" />
+		</g:layer>
+		<g:layer right="0px" left="55px" bottom="5px" height="15px">
+			<g:Label ui:field="name" addStyleNames="{style.name}" />
+		</g:layer>
+	</g:LayoutPanel>
+</ui:UiBinder> 

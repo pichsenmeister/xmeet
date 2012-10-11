@@ -1,0 +1,343 @@
+/* ---------- EVENT ---------- */
+
+.xevent {
+  background: #CFFFDD;
+  padding: 10px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  margin-bottom: 10px;
+}
+/*.xevent:hover {
+  background: #BFFFD1;
+}*/
+.xevent-image {
+  width: 64px;
+  height: 64px;
+  float: left;
+  margin-right: 5px;
+  cursor: pointer;
+  cursor: hand;
+}
+.xevent-user {
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+	margin-right: 8px;
+	cursor: pointer;
+	cursor: hand;
+}
+.xevent-name {
+	padding-top: 5px;
+	padding-bottom: 1px;
+	color: #888;
+	cursor: pointer;
+	cursor: hand;
+}
+.xevent-title {
+	font-weight: bold;
+	padding-right: 10px;
+	float: left;
+}
+.xevent-place {
+
+}
+.xevent-date {
+	margin-top: 10px;
+	color: #888;
+	font-size: 16px;
+	font-weight: bold;
+}
+.xevent-description {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+.xevent-button {
+    border-radius: 18px;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
+	color: #000000;
+	border: 1px outset #00ff77;
+	font-variant: normal;
+	font-size: 20px;
+	font-family: Verdana;
+	font-weight: bold;
+	background-color: #00ff77;
+	cursor: pointer;
+	cursor: hand;
+	outline: none;
+	text-shadow: 0 1px 0 #CCCCCC;
+	padding-left: 8px;
+	padding-right: 8px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+	width: 35px;
+	height: 35px;	
+	margin-right: 10px;
+}
+.xevent-button:active {
+  border: 1px inset #00ff77;
+}
+.xevent-button:hover {
+  background: #66FFAD;
+}
+.xevent-button:focus {
+  background: #66FFAD;
+}
+.xevent-button:disabled {
+  border: 1px solid #888;
+  background: #ccc;
+  cursor: default;
+}
+.xevent-status {
+	font-size: 14px;
+	font-weight: bold;
+	display: inline;
+}
+.xevent-user-hover:hover .xevent-user {
+	text-decoration: underline;
+}
+.xevent-user-hover {
+}
+.xevent-header {
+  margin-top:5px; 
+}
+
+/* ---------- REMINDER ---------- */
+
+.reminder-panel {
+	padding: 10px;
+	background: #FFE0E4 url('xmeet/alarm.png') 98% 40% no-repeat;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin-bottom: 10px;
+}
+.reminder-panel:hover {
+	background: #FFD8DD url('xmeet/alarm.png') 98% 40% no-repeat;
+}
+.reminder-panel-image {
+  width: 48px;
+  height: 48px;
+  float: left;
+  margin-right: 5px;
+  cursor: pointer;
+  cursor: hand;
+}
+.reminder-panel-username {
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 10px;
+	cursor: pointer;
+	cursor: hand;
+}
+.reminder-panel-name {
+	padding-top: 1px;
+	color: #333;
+	font-style: italic;
+	text-shadow: 0px 1px 0px #CCC;
+	cursor: pointer;
+	cursor: hand;
+}
+.reminder-panel-title {
+	float: left;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 10px;
+	cursor: pointer;
+	cursor: hand;
+}
+.reminder-panel-date {
+	color: #888;
+	margin-top: 2px;
+	font-style: italic;
+	displa
+}
+.reminder-panel-place {
+	font-style: italic;
+}
+.reminder-panel-listen-text {
+	display: inline;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: default;
+}
+.reminder-panel-alarm {
+	float: right;
+	width: 48px;
+	height: 48px;
+}
+
+
+/* ---------- CREATOR ---------- */
+
+.event-table {
+	color: #888;
+	font-size: 10px;
+	width: 498px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	border-top: 0;
+	box-shadow: 0 0 15px #ccc;
+	border-radius: 0 0 10px 10px;
+	-moz-border-radius: 0 0 10px 10px;
+	-webkit-border-radius: 0 0 10px 10px;
+}
+.event-table td, .event-table tr {
+	border: 0px;
+	border-spacing: 0px;
+}
+.event-table table {
+	border: 0px;
+	border-spacing: 0px;
+}
+.event-table input, .event-table textarea {
+	border: 1px solid #ccc;
+	background: #fff;
+	outline: none;
+	border-radius: 0px;
+	resize: none;
+}
+.event-table input:disabled, .event-table textarea:disabled {
+	border: 1px solid #ccc;
+	background: #eee;
+	outline: none;
+	border-radius: 0px;
+}
+.event-table input:disabled:hover, .event-table textarea:disabled:hover {
+	border: 1px solid #ccc;
+	background: #eee;
+	outline: none;
+	border-radius: 0px;
+}
+.event-table input:focus, .event-table input:active, .event-table textarea:active, .event-table textarea:focus, .event-table input:hover, .event-table textarea:hover {
+	border: 1px solid #ccc;
+	background: #fff;
+	outline: none;
+	border-radius: 0px;
+}
+.counter {
+	margin-left: 375px;
+	margin-top: 5px;
+	float: left;
+	padding: 3px;
+	cursor: default;	
+	width: 40px;
+	text-align: center;
+	font-size: 16px;
+	color: red;
+	font-weight: bold;
+}
+
+.pencil {
+	background: url('xmeet/pencil2.png');
+	width: 20px;
+	height: 20px;	
+}
+
+/* ---------- POSTING ---------- */
+
+.posting-header {
+	color: #000;
+	font-size: 11px;
+}
+.posting-header:hover {
+	text-decoration: underline;	
+}
+.posting-box {
+	font-size: 10px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+	color: #000000;
+	border: 1px solid #00ff77;
+	background-color: #fff;
+	outline: none;
+	width: 330px;
+	display: block;
+	padding-left: 3px;
+}
+.posting-box:hover {
+  border: 1px solid #00DD5F;
+}
+.posting-box:focus{
+	border: 1px solid #00ff77;
+  -moz-box-shadow: 0 0 3px #0f7;
+  -webkit-box-shadow: 0 0 3px #0f7;
+  box-shadow: 0 0 3px #0f7;
+}
+.posting-image {
+	width: 32px;
+	height: 32px;
+	margin-right: 5px;
+	float: left;		
+}
+.posting-info {
+	font-size: 10px;
+	margin-top: 3px;
+	color: #888; 
+}
+.postings-panel {
+	margin-top: 10px;
+	width: 100%;
+}
+.single-post {
+  min-height: 32px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 3px;
+  background: #A5FFBF;
+  width: 95%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;	
+}
+.single-post-date {
+  color: #888;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+.single-post-image {
+	float: left;
+	margin-right: 5px;
+	width: 32px;
+	height: 32px;
+}
+.single-post-name {
+	float: left;
+	margin-right: 5px;
+	font-weight: bold;
+}
+.xevent-together {
+	position: relative;
+}
+.xevent-left {
+	position: relative;
+	float: left;
+}
+.xevent-right {
+	position: relative;
+	float: right;
+}
+.xevent-bottom {
+	position: relative;
+	clear: left;
+}
+.xevent-posting {
+	margin-bottom: 10px;
+	margin-top: 10px;
+	float: left;
+}
+
+.date-spacer {
+	background: #eee;
+	border-bottom: 1px solid #ccc;
+	padding: 3px 10px 3px 10px;
+	margin-bottom: 10px;
+	color: #666;
+	text-shadow: #ccc 0px 1px 1px;
+	font-weight: bold;
+
+}

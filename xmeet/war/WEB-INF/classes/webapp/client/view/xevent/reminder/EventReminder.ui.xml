@@ -1,0 +1,72 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.panel {
+			background: #FFD8DD;
+			border-radius: 10px;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			-o-border-radius: 10px;
+			margin-bottom: 5px;
+		}
+		.image {
+		  cursor: pointer;
+		  cursor: hand;
+		}
+		.userHover:hover .user {
+			text-decoration: underline;
+		}
+		.user {
+			float: left;
+			font-weight: bold;
+			margin-right: 5px;
+			cursor: pointer;
+			cursor: hand;
+		}
+		.name {
+			color: #888;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			cursor: pointer;
+			cursor: hand;
+		}
+		.date {
+			margin-right: 5px;
+			color: #888;
+			font-weight: bold;
+			float: left;
+		}
+		.time {
+			color: #888;
+			font-weight: bold;
+		}
+		.title {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	</ui:style>
+	<g:LayoutPanel width="295px" height="80px" styleName="{style.panel}">
+		<g:layer top="5px" height="48px" left="5px" width="48px">
+			<g:Image width="48px" height="48px" addStyleNames="{style.image}" ui:field="image"/>
+		</g:layer>
+		<g:layer left="60px" right="10px" top="5px" height="15px">
+			<g:FlowPanel styleName="{style.userHover}">
+				<g:Label ui:field="username" styleName="{style.user}"/>
+				<g:Label ui:field="name" styleName="{style.name}"/>
+			</g:FlowPanel>
+		</g:layer>
+		<g:layer left="60px" right="45px" top="20px" height="15px">
+			<g:Label ui:field="date" styleName="{style.date}"/>
+		</g:layer>
+		<g:layer top="35px" height="15px" left="60px" right="45px">
+			<g:Label ui:field="time" styleName="{style.time}"/>
+		</g:layer>
+		<g:layer top="58px" bottom="5px" left="10px" right="10px">
+			<g:Label ui:field="title" styleName="{style.title}"/>
+		</g:layer>
+		<g:layer right="5px" width="32px" top="24px" bottom="24px">
+			<g:Image width="32px" height="32px" url="xmeet/alarm_32x32.png"/>
+		</g:layer>
+	</g:LayoutPanel>
+</ui:UiBinder> 

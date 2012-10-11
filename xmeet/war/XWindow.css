@@ -1,0 +1,28 @@
+.window {
+	border: 8px solid #228B22;
+	border-radius: 8px;
+}
+
+.window .Caption {
+	background-color: #228B22;
+	font-family: Verdana;
+	font-size: 14px;
+	font-weight: bold;
+	color: white; 
+	border-top: 5px solid #228B22;
+	border-bottom: 5px solid #228B22;
+	padding: 4px 4px 4px 8px;
+	cursor: move;
+}
+
+.window .dialogTopRight {
+	background-color: #228B22;	
+}
+
+.window .dialogTopLeft {
+	background-color: #228B22;	
+}
+.window .dialogMiddle {
+  padding: 3px;
+  background: white;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='xmeet'>
+
+  <inherits name='com.google.gwt.user.User'/>
+  <inherits name='net.sf.gilead.Gilead4Gwt'/>
+  <inherits name='com.google.gwt.visualization.Visualization'/>
+  <inherits name='com.gwtplatform.mvp.Mvp' />
+  <inherits name='com.google.gwt.maps.GoogleMaps' />
+
+  <define-configuration-property name="gin.ginjector" is-multi-valued="false" />
+  <set-configuration-property name="gin.ginjector" value="webapp.client.gin.XGinjector" />
+  
+  <public path='images' />
+
+
+  <entry-point class='webapp.client.Xmeet'/>
+
+  <source path='client'/>
+  <source path='model'/>
+
+</module>

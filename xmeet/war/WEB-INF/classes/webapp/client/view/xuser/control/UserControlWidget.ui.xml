@@ -1,0 +1,109 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.controlPanel {
+			background: #000000 url('xmeet/background_40.png') repeat-x;
+			position: fixed;	
+			z-index: 99998;
+			top: 0px;
+			left: 0px;
+			right: 0px;
+			box-shadow: 0px 0px 15px #333;
+			-webkit-box-shadow: 0px 0px 15px #333;
+			-moz-box-sadow: 0px 0px 15px #333;
+		}
+		.centerPanel {
+			margin:auto;
+		}
+		.accountSelector {
+			position: fixed;
+			z-index: 99998;
+			top: 40px;
+			display: none;
+			background: #333;
+		}
+		.selectImage {
+			cursor: pointer;
+			cursor: hand;
+			border-radius: none !important;
+			-webkit-border-radius: none !important;
+			-moz-border-radius: none !important;
+			-o-border-radius: none !important;
+		}
+		.userPanel {
+			color: #ccc;
+			font-size: 14px;
+			cursor: pointer;
+			font-weight: bold;
+		}
+		.userPanel:hover {
+			background: #333;
+		}
+		.userLabel {
+			max-width: 100px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			padding-top: 12px;
+			text-align: right;
+		}
+		.menuLabel {
+			padding: 12px;
+			text-shadow: 0px 1px 0px #888;
+			color: #ccc;
+			cursor: pointer;
+			cursor: hand;
+		}
+		.menuLabelActive {
+			background: #333;
+			padding: 12px;
+			text-shadow: 0px 1px 0px #888;
+			color: #ccc;
+			cursor: pointer;
+			cursor: hand;
+		}
+		.menuLabel:hover {
+			background: #444;
+		}
+		.icon {
+			cursor: pointer;	
+		}
+		
+	</ui:style>
+	<g:LayoutPanel height="40px" width="100%" styleName="{style.controlPanel}">
+		<g:layer>
+			<g:FlowPanel width="980px" height="40px" styleName="{style.centerPanel}">
+				<g:LayoutPanel width="100%" height="40px">
+					<g:layer left="20px" width="32px" top="4px" height="32px">
+						<g:Image ui:field="news" width="32px" height="32px" altText="icon_home" styleName="{style.icon}" url="xmeet/icon_home_inactive.png"/>
+					</g:layer>
+					<g:layer left="72px" width="32px" top="4px" height="32px">
+						<g:Image ui:field="contacts" width="32px" height="32px" altText="icon_contacts" styleName="{style.icon}" url="xmeet/icon_messages_inactive.png"/>
+					</g:layer>
+					<g:layer left="124px" width="32px" top="4px" height="32px">
+						<g:Image ui:field="create" width="32px" height="32px" altText="icon_create" styleName="{style.icon}" url="xmeet/icon_create_inactive.png"/>
+					</g:layer>
+					<g:layer left="390px" width="200px" top="4px" height="32px">
+						<g:Image ui:field="logo" width="200px" height="32px" altText="logo" url="xmeet/shraddle_30.png"/>
+					</g:layer>
+					<g:layer right="150px" width="150px" top="0px" height="40px">
+						<g:LayoutPanel width="150px" height="40px" ui:field="userPanel" styleName="{style.userPanel}">
+							<g:layer right="50px" width="100px" top="0px" height="40px">
+								<g:Label ui:field="name" styleName="{style.userLabel}"/>
+							</g:layer>
+							<g:layer right="8px" width="32px" top="4px" height="32px">
+								<g:Image width="32px" height="32px" ui:field="profilePicture" />
+							</g:layer>
+						</g:LayoutPanel>
+					</g:layer>
+					<g:layer top="4px" height="32px" right="72px" width="32px">
+						<g:Image ui:field="settings" width="32px" height="32px" altText="icon_settings" styleName="{style.icon}" url="xmeet/icon_settings_inactive.png"/>
+					</g:layer>
+					<g:layer right="20px" width="32px" top="4px" height="32px">
+						<g:Image ui:field="logout" width="32px" height="32px" altText="icon_logout" styleName="{style.icon}" url="xmeet/icon_logout_inactive.png"/>
+					</g:layer>
+				</g:LayoutPanel>
+			</g:FlowPanel>
+		</g:layer>
+	</g:LayoutPanel>
+</ui:UiBinder> 
