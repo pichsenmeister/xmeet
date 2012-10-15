@@ -185,10 +185,6 @@ public class RPCUserImpl extends PersistentRemoteService implements
 		Session session = gileadHibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
-		// XUser loggedUserLoaded = (XUser) session.get(XUser.class,
-		// loggedUser.getUserID());
-		// XUser contactLoaded = (XUser) session.get(XUser.class,
-		// contact.getUserID());
 		XContact contact = new XContact();
 		contact.setListener(listener);
 		contact.setListenTo(listenTo);
@@ -206,7 +202,7 @@ public class RPCUserImpl extends PersistentRemoteService implements
 	}
 
 	@Override
-	public XUser verifyContactRequest(XUser listener, XUser listenTo, XContactStatus status) {
+	public XUser verifyContactRequest(XUser listener, XUser listenTo) {
 		Session session = gileadHibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 
@@ -214,7 +210,7 @@ public class RPCUserImpl extends PersistentRemoteService implements
 				.createQuery("FROM XContact WHERE listener = ? AND listenTo = ?")
 				.setEntity(0, listener).setEntity(1, listenTo).uniqueResult();
 
-		contact.setStatus(status);
+		contact.setStatus(XContactStatus.PERMIT);
 		session.update(contact);
 
 		session.getTransaction().commit();

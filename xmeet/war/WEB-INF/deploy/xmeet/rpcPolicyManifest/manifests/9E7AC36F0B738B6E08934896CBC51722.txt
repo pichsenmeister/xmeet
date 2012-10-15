@@ -1,0 +1,2 @@
+serviceClass: webapp.client.rpc.xcontent.RPCContent
+path: 9FF38A59D8057E8F88CC393E2AB33F55.gwt.rpc

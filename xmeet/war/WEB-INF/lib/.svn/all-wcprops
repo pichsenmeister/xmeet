@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/xmeet/!svn/ver/20/xmeet/war/WEB-INF/lib
+END
+beanlib-5.0.2beta.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/xmeet/!svn/ver/3/xmeet/war/WEB-INF/lib/beanlib-5.0.2beta.jar
+END
+hibernate-validator-4.1.0.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/xmeet/!svn/ver/3/xmeet/war/WEB-INF/lib/hibernate-validator-4.1.0.Final.jar
+END
+slf4j-api-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/xmeet/!svn/ver/3/xmeet/war/WEB-INF/lib/slf4j-api-1.6.1.jar
+END
+gwt-servlet.jar
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/xmeet/!svn/ver/20/xmeet/war/WEB-INF/lib/gwt-servlet.jar
+END

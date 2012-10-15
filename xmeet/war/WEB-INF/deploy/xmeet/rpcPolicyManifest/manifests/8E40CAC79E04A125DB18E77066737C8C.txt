@@ -1,0 +1,2 @@
+serviceClass: webapp.client.rpc.xmedia.RPCMedia
+path: 08D0E0B09C9594DF32697E0D1A2B933D.gwt.rpc

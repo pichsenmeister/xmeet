@@ -14,6 +14,7 @@ import webapp.client.presenter.xevent.invitation.InvitationPopupPresenter;
 import webapp.client.presenter.xlocation.CreatePresenter;
 import webapp.client.presenter.xlocation.CreateWidgetPresenter;
 import webapp.client.presenter.xlocation.LocationPopupPresenter;
+import webapp.client.presenter.xlocation.ShowLocationPopupPresenter;
 import webapp.client.presenter.xuser.ContactsPresenter;
 import webapp.client.presenter.xuser.ContactsWidgetPresenter;
 import webapp.client.presenter.xuser.ControlPanelPresenterWidget;
@@ -34,6 +35,7 @@ import webapp.client.view.settings.SettingsView;
 import webapp.client.view.xlocation.CreateView;
 import webapp.client.view.xlocation.CreateWidget;
 import webapp.client.view.xlocation.LocationPopup;
+import webapp.client.view.xlocation.ShowLocationPopup;
 import webapp.client.view.xuser.ContactsWidget;
 import webapp.client.view.xuser.ControlPanelWidget;
 import webapp.client.view.xuser.RegisterWidget;
@@ -63,50 +65,63 @@ public class XModule extends AbstractPresenterModule {
 	protected void configure() {
 		// install(new DefaultModule(AppController.class));
 		bind(EventBus.class).to(SimpleEventBus.class).in(Singleton.class);
-		bind(TokenFormatter.class).to(ParameterTokenFormatter.class).in(Singleton.class);
+		bind(TokenFormatter.class).to(ParameterTokenFormatter.class).in(
+				Singleton.class);
 		bind(RootPresenter.class).asEagerSingleton();
 		bind(PlaceManager.class).to(AppController.class).in(Singleton.class);
-		bind(GoogleAnalytics.class).to(GoogleAnalyticsImpl.class).in(Singleton.class);
+		bind(GoogleAnalytics.class).to(GoogleAnalyticsImpl.class).in(
+				Singleton.class);
 		bind(LoggedInGatekeeper.class).in(Singleton.class);
 
 		// bind Presenter Widgets
-		bindPresenterWidget(RegisterWidgetPresenter.class, RegisterWidgetPresenter.IView.class, RegisterWidget.class);
-		bindPresenterWidget(ContactsWidgetPresenter.class, ContactsWidgetPresenter.IView.class, ContactsWidget.class);
+		bindPresenterWidget(RegisterWidgetPresenter.class,
+				RegisterWidgetPresenter.IView.class, RegisterWidget.class);
+		bindPresenterWidget(ContactsWidgetPresenter.class,
+				ContactsWidgetPresenter.IView.class, ContactsWidget.class);
 
-		bindPresenterWidget(ControlPanelPresenterWidget.class, ControlPanelPresenterWidget.IView.class,
+		bindPresenterWidget(ControlPanelPresenterWidget.class,
+				ControlPanelPresenterWidget.IView.class,
 				ControlPanelWidget.class);
-		bindPresenterWidget(CreateWidgetPresenter.class, CreateWidgetPresenter.IView.class,
-				CreateWidget.class);
-		bindPresenterWidget(UsersEventsWidgetPresenter.class, UsersEventsWidgetPresenter.IView.class,
-				UsersEventsWidget.class);
-		bindPresenterWidget(ContentPresenterWidget.class, ContentPresenterWidget.IView.class, ContentWidget.class);
-		bindPresenterWidget(NewsWidgetPresenter.class, NewsWidgetPresenter.IView.class, NewsWidget.class);
-		bindPresenterWidget(FooterPresenterWidget.class, FooterPresenterWidget.IView.class, FooterWidget.class);
+		bindPresenterWidget(CreateWidgetPresenter.class,
+				CreateWidgetPresenter.IView.class, CreateWidget.class);
+		bindPresenterWidget(UsersEventsWidgetPresenter.class,
+				UsersEventsWidgetPresenter.IView.class, UsersEventsWidget.class);
+		bindPresenterWidget(ContentPresenterWidget.class,
+				ContentPresenterWidget.IView.class, ContentWidget.class);
+		bindPresenterWidget(NewsWidgetPresenter.class,
+				NewsWidgetPresenter.IView.class, NewsWidget.class);
+		bindPresenterWidget(FooterPresenterWidget.class,
+				FooterPresenterWidget.IView.class, FooterWidget.class);
 
 		// bind Singleton Presenter Widgets
-		bindSingletonPresenterWidget(LocationPopupPresenter.class, LocationPopupPresenter.IView.class,
-				LocationPopup.class);
-		bindSingletonPresenterWidget(InvitationPopupPresenter.class, InvitationPopupPresenter.IView.class,
-				InvitationPopup.class);
+		bindSingletonPresenterWidget(LocationPopupPresenter.class,
+				LocationPopupPresenter.IView.class, LocationPopup.class);
+		bindSingletonPresenterWidget(ShowLocationPopupPresenter.class,
+				ShowLocationPopupPresenter.IView.class, ShowLocationPopup.class);
+		bindSingletonPresenterWidget(InvitationPopupPresenter.class,
+				InvitationPopupPresenter.IView.class, InvitationPopup.class);
 		bindSingletonPresenterWidget(UserControlPanelWidgetPresenter.class,
-				UserControlPanelWidgetPresenter.IView.class, UserControlPanelWidget.class);
+				UserControlPanelWidgetPresenter.IView.class,
+				UserControlPanelWidget.class);
 
 		// bind Presenters
-		bindPresenter(StartPagePresenter.class, StartPagePresenter.IView.class, StartPageView.class,
-				StartPagePresenter.IProxy.class);
-		bindPresenter(UserPagePresenter.class, UserPagePresenter.IView.class, UserPageView.class,
-				UserPagePresenter.IProxy.class);
-		bindPresenter(SearchResultPresenter.class, SearchResultPresenter.IView.class, SearchResultView.class,
+		bindPresenter(StartPagePresenter.class, StartPagePresenter.IView.class,
+				StartPageView.class, StartPagePresenter.IProxy.class);
+		bindPresenter(UserPagePresenter.class, UserPagePresenter.IView.class,
+				UserPageView.class, UserPagePresenter.IProxy.class);
+		bindPresenter(SearchResultPresenter.class,
+				SearchResultPresenter.IView.class, SearchResultView.class,
 				SearchResultPresenter.IProxy.class);
-		bindPresenter(NewsPresenter.class, NewsPresenter.IView.class, NewsView.class, NewsPresenter.IProxy.class);
-		bindPresenter(SettingsPresenter.class, SettingsPresenter.IView.class, SettingsView.class,
-				SettingsPresenter.IProxy.class);
-		bindPresenter(ContentPresenter.class, ContentPresenter.IView.class, ContentView.class,
-				ContentPresenter.IProxy.class);
-		bindPresenter(CreatePresenter.class, CreatePresenter.IView.class, CreateView.class,
-				CreatePresenter.IProxy.class);
-		bindPresenter(ContactsPresenter.class, ContactsPresenter.IView.class, ContactsView.class,
-				ContactsPresenter.IProxy.class);
+		bindPresenter(NewsPresenter.class, NewsPresenter.IView.class,
+				NewsView.class, NewsPresenter.IProxy.class);
+		bindPresenter(SettingsPresenter.class, SettingsPresenter.IView.class,
+				SettingsView.class, SettingsPresenter.IProxy.class);
+		bindPresenter(ContentPresenter.class, ContentPresenter.IView.class,
+				ContentView.class, ContentPresenter.IProxy.class);
+		bindPresenter(CreatePresenter.class, CreatePresenter.IView.class,
+				CreateView.class, CreatePresenter.IProxy.class);
+		bindPresenter(ContactsPresenter.class, ContactsPresenter.IView.class,
+				ContactsView.class, ContactsPresenter.IProxy.class);
 
 	}
 

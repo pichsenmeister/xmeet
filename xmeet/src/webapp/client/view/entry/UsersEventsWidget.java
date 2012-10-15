@@ -15,9 +15,10 @@ import com.gwtplatform.mvp.client.ViewImpl;
  * 
  * @author David Pichsenmeister
  */
-public class UsersEventsWidget extends ViewImpl implements UsersEventsWidgetPresenter.IView {
+public class UsersEventsWidget extends ViewImpl implements
+		UsersEventsWidgetPresenter.IView {
 
-	public static final String NO_EVENTS = "es sind keine entsprechenden events vorhanden";
+	public static final String NO_EVENTS = "no entries found";
 
 	private static final String STYLE_MENU = "menu-event";
 	private static final String STYLE_LOADING = "loading";

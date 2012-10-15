@@ -8,6 +8,7 @@ import webapp.client.presenter.news.NewsWidgetPresenter;
 import webapp.client.view.customwidget.ListView;
 import webapp.client.view.customwidget.ListView.IGenerator;
 import webapp.client.view.entry.entrywidget.EntryWidget;
+import webapp.model.XLocation;
 import webapp.model.XLocationEntry;
 import webapp.model.XUser;
 
@@ -28,7 +29,7 @@ import com.gwtplatform.mvp.client.ViewImpl;
 public class NewsWidget extends ViewImpl implements NewsWidgetPresenter.IView {
 
 	public static final String LOADING = "loading";
-	public static final String NO_DATA = "keine einträge vorhanden";
+	public static final String NO_DATA = "no entries found";
 	public static final String AT = "@";
 
 	private static final String STYLE_AT = "atWidget";
@@ -39,6 +40,7 @@ public class NewsWidget extends ViewImpl implements NewsWidgetPresenter.IView {
 	private Button more_;
 
 	private ITypedCallback<XUser> callbackUser_;
+	private ITypedCallback<XLocation> callbackLoc_;
 	private ICallback callbackMore_;
 
 	/**
@@ -57,6 +59,7 @@ public class NewsWidget extends ViewImpl implements NewsWidgetPresenter.IView {
 			public Widget generateWidget(XLocationEntry model) {
 				EntryWidget widget = new EntryWidget();
 				widget.setCallbackUser(callbackUser_);
+				widget.setCallbackLocation(callbackLoc_);
 				widget.setData(model);
 				return widget;
 			}
@@ -111,6 +114,11 @@ public class NewsWidget extends ViewImpl implements NewsWidgetPresenter.IView {
 	@Override
 	public void setCallbackUser(ITypedCallback<XUser> callback) {
 		callbackUser_ = callback;
+	}
+
+	@Override
+	public void setCallbackLocation(ITypedCallback<XLocation> callback) {
+		callbackLoc_ = callback;
 	}
 
 	@Override

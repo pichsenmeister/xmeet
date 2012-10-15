@@ -30,13 +30,15 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class CreateBox extends Composite {
 
-	private static CreateBoxUiBinder uiBinder = GWT.create(CreateBoxUiBinder.class);
+	private static CreateBoxUiBinder uiBinder = GWT
+			.create(CreateBoxUiBinder.class);
 
 	interface CreateBoxUiBinder extends UiBinder<Widget, CreateBox> {
 	}
 
 	private static Integer COUNT = 100;
-	public static final String SUBMIT = "erstellen";
+	public static final String SUBMIT = "save";
+	public static final String NEW_LOC = "new location";
 
 	@UiField
 	ListView<XLocation> locations;
@@ -51,6 +53,8 @@ public class CreateBox extends Composite {
 	@UiField
 	XButton submit;
 	@UiField
+	XButton newloc;
+	@UiField
 	Label counter;
 	@UiField
 	Label location;
@@ -61,6 +65,7 @@ public class CreateBox extends Composite {
 
 	ICallback backCallback;
 	ICallback nextCallback;
+	ICallback callbackNewLocation;
 	ITypedCallback<XVisibility> callbackVisibility;
 	ITypedCallback<String> callbackLocation;
 	ITypedCallback<XLocationEntry> callbackSubmit;
@@ -83,6 +88,8 @@ public class CreateBox extends Composite {
 
 		counter.setText(COUNT.toString());
 		submit.setText(SUBMIT);
+		newloc.setText(NEW_LOC);
+		newloc.setPixelSize(90, 25);
 
 		locations.setGenerator(new IGenerator<XLocation>() {
 
@@ -110,6 +117,10 @@ public class CreateBox extends Composite {
 		callbackLocation = callback;
 	}
 
+	public void setCallbackNewLocation(ICallback callback) {
+		callbackNewLocation = callback;
+	}
+
 	public void setCallbackSubmit(ITypedCallback<XLocationEntry> callback) {
 		callbackSubmit = callback;
 	}
@@ -131,7 +142,8 @@ public class CreateBox extends Composite {
 	}
 
 	private void doAnalyze() {
-		String[] analyse = TextProcessingEngine.splitString(text.getText().toLowerCase());
+		String[] analyse = TextProcessingEngine.splitString(text.getText()
+				.toLowerCase());
 		TextProcessingEngine.setActualStringArray(analyse);
 
 		String place = TextProcessingEngine.doAnalyzePlace();
@@ -185,6 +197,13 @@ public class CreateBox extends Composite {
 		}
 	}
 
+	@UiHandler("newloc")
+	void onNewLocClick(ClickEvent event) {
+		if (callbackNewLocation != null) {
+			callbackNewLocation.execute();
+		}
+	}
+
 	@UiHandler("visibility")
 	void onVisibilityChange(ChangeEvent event) {
 		String typeStr = visibility.getValue(visibility.getSelectedIndex());
@@ -202,7 +221,8 @@ public class CreateBox extends Composite {
 			counter.setText(count.toString());
 		}
 		if ((event.getNativeKeyCode() == KeyCodes.KEY_BACKSPACE)
-				&& (locationModel != null) && !(location.getText().equals(locationModel.getName()))) {
+				&& (locationModel != null)
+				&& !(location.getText().equals(locationModel.getName()))) {
 			search = true;
 		}
 	}

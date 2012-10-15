@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/xmeet/!svn/ver/26/xmeet/src/webapp/client/callback
+END
+ICallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/xmeet/!svn/ver/23/xmeet/src/webapp/client/callback/ICallback.java
+END
+ITypedCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/xmeet/!svn/ver/26/xmeet/src/webapp/client/callback/ITypedCallback.java
+END

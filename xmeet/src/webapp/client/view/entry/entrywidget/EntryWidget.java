@@ -1,6 +1,7 @@
 package webapp.client.view.entry.entrywidget;
 
 import webapp.client.callback.ITypedCallback;
+import webapp.model.XLocation;
 import webapp.model.XLocationEntry;
 import webapp.model.XUser;
 
@@ -17,7 +18,8 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class EntryWidget extends Composite {
 
-	private static EntryWidgetUiBinder uiBinder = GWT.create(EntryWidgetUiBinder.class);
+	private static EntryWidgetUiBinder uiBinder = GWT
+			.create(EntryWidgetUiBinder.class);
 
 	interface EntryWidgetUiBinder extends UiBinder<Widget, EntryWidget> {
 	}
@@ -34,6 +36,7 @@ public class EntryWidget extends Composite {
 	XLocationEntry entry_;
 
 	ITypedCallback<XUser> callbackUser_;
+	ITypedCallback<XLocation> callbackLoc_;
 
 	public EntryWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -67,6 +70,10 @@ public class EntryWidget extends Composite {
 		callbackUser_ = callback;
 	}
 
+	public void setCallbackLocation(ITypedCallback<XLocation> callback) {
+		callbackLoc_ = callback;
+	}
+
 	public XLocationEntry getLocationEntry() {
 		return entry_;
 	}
@@ -75,6 +82,13 @@ public class EntryWidget extends Composite {
 	void handleClick(ClickEvent e) {
 		if (callbackUser_ != null) {
 			callbackUser_.execute(entry_.getUser());
+		}
+	}
+
+	@UiHandler("description")
+	void handleDescriptionClick(ClickEvent e) {
+		if ((callbackLoc_ != null) && (entry_.getLocation() != null)) {
+			callbackLoc_.execute(entry_.getLocation());
 		}
 	}
 }

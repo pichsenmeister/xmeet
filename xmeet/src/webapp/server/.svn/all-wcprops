@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/xmeet/!svn/ver/28/xmeet/src/webapp/server
+END
+RPCLocationImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/xmeet/!svn/ver/33/xmeet/src/webapp/server/RPCLocationImpl.java
+END
+UserPageServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/xmeet/!svn/ver/18/xmeet/src/webapp/server/UserPageServlet.java
+END
+RPCContentImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/xmeet/!svn/ver/24/xmeet/src/webapp/server/RPCContentImpl.java
+END
+RPCNewsImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/xmeet/!svn/ver/27/xmeet/src/webapp/server/RPCNewsImpl.java
+END
+RPCUserImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/xmeet/!svn/ver/33/xmeet/src/webapp/server/RPCUserImpl.java
+END
+RPCMediaImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/xmeet/!svn/ver/28/xmeet/src/webapp/server/RPCMediaImpl.java
+END
+UploadServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/xmeet/!svn/ver/28/xmeet/src/webapp/server/UploadServlet.java
+END

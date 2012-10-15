@@ -19,7 +19,8 @@ import webapp.model.XUser;
 /**
  * The server side implementation of the RPC service.
  */
-public class RPCLocationImpl extends PersistentRemoteService implements RPCLocation {
+public class RPCLocationImpl extends PersistentRemoteService implements
+		RPCLocation {
 
 	private static final long serialVersionUID = 2635292065166603353L;
 
@@ -29,7 +30,8 @@ public class RPCLocationImpl extends PersistentRemoteService implements RPCLocat
 	 * Constructor
 	 */
 	public RPCLocationImpl() {
-		gileadHibernateUtil.setSessionFactory(webapp.hibernate.HibernateUtil.getSessionFactory());
+		gileadHibernateUtil.setSessionFactory(webapp.hibernate.HibernateUtil
+				.getSessionFactory());
 
 		PersistentBeanManager persistentBeanManager = new PersistentBeanManager();
 		persistentBeanManager.setPersistenceUtil(gileadHibernateUtil);
@@ -42,17 +44,20 @@ public class RPCLocationImpl extends PersistentRemoteService implements RPCLocat
 	}
 
 	@Override
-	public List<XLocation> searchLocations(String location, int start, int maxResult) {
+	public List<XLocation> searchLocations(String location, int start,
+			int maxResult) {
 		location = "%" + location + "%";
 
-		Session session = gileadHibernateUtil.getSessionFactory().getCurrentSession();
+		Session session = gileadHibernateUtil.getSessionFactory()
+				.getCurrentSession();
 		session.beginTransaction();
 
 		@SuppressWarnings("unchecked")
 		List<XLocation> list = new ArrayList<XLocation>(session
-				.createSQLQuery("SELECT * FROM xlocation WHERE xlocation.name ILIKE ?")
-				.addEntity("xlocation", XLocation.class).setString(0, location).setFirstResult(start)
-				.setMaxResults(maxResult).list());
+				.createSQLQuery(
+						"SELECT * FROM xlocation WHERE xlocation.name ILIKE ?")
+				.addEntity("xlocation", XLocation.class).setString(0, location)
+				.setFirstResult(start).setMaxResults(maxResult).list());
 
 		session.getTransaction().commit();
 
@@ -61,7 +66,8 @@ public class RPCLocationImpl extends PersistentRemoteService implements RPCLocat
 
 	@Override
 	public XLocation saveXLocation(XLocation location) {
-		Session session = gileadHibernateUtil.getSessionFactory().getCurrentSession();
+		Session session = gileadHibernateUtil.getSessionFactory()
+				.getCurrentSession();
 		session.beginTransaction();
 
 		String name = location.getName();
@@ -78,7 +84,8 @@ public class RPCLocationImpl extends PersistentRemoteService implements RPCLocat
 	@SuppressWarnings("deprecation")
 	@Override
 	public XLocationEntry saveXLocationEntry(XLocationEntry location, XUser user) {
-		Session session = gileadHibernateUtil.getSessionFactory().getCurrentSession();
+		Session session = gileadHibernateUtil.getSessionFactory()
+				.getCurrentSession();
 		session.beginTransaction();
 
 		location.setCreated(System.currentTimeMillis());
@@ -90,19 +97,28 @@ public class RPCLocationImpl extends PersistentRemoteService implements RPCLocat
 	}
 
 	@Override
-	public List<XLocationEntry> loadLocationEntries(XUser user, int start, int max) {
-		Session session = gileadHibernateUtil.getSessionFactory().getCurrentSession();
+	public List<XLocationEntry> loadLocationEntries(XUser user, int start,
+			int max) {
+		Session session = gileadHibernateUtil.getSessionFactory()
+				.getCurrentSession();
 		session.beginTransaction();
 
 		XUser userLoaded = (XUser) session.get(XUser.class, user.getUserID());
+		// @SuppressWarnings("unchecked")
+		// List<XLocationEntry> locations = new
+		// ArrayList<XLocationEntry>(session
+		// .createQuery("FROM XLocationEntry WHERE user = ?").setEntity(0,
+		// userLoaded).setFirstResult(start)
+		// .setMaxResults(max).list());
 		@SuppressWarnings("unchecked")
-		List<XLocationEntry> locations = new ArrayList<XLocationEntry>(session
-				.createQuery("FROM XLocationEntry WHERE user = ?").setEntity(0, userLoaded).setFirstResult(start)
-				.setMaxResults(max).list());
+		List<XLocationEntry> locations = new ArrayList<XLocationEntry>(
+				session.createQuery(
+						"FROM XLocationEntry location WHERE location.user IN (SELECT contact.listenTo FROM XContact contact WHERE contact.listener = ? AND contact.status = 'PERMIT')")
+						.setEntity(0, user).setFirstResult(start)
+						.setMaxResults(max).list());
 
 		session.getTransaction().commit();
 
 		return locations;
 	}
-
 }

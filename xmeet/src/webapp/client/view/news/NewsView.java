@@ -16,7 +16,7 @@ import com.gwtplatform.mvp.client.ViewImpl;
  */
 public class NewsView extends ViewImpl implements NewsPresenter.IView {
 
-	public static final String HEADER = "wer ist @?";
+	public static final String HEADER = "news";
 
 	private static final String STYLE_CONTENT = "user-content-wrapper";
 	private static final String STYLE_CONTENT_LEFT = "content-left";

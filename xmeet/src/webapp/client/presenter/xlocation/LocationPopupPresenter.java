@@ -21,7 +21,9 @@ import com.gwtplatform.mvp.client.proxy.NavigationHandler;
  * @author David Pichsenmeister
  * 
  */
-public class LocationPopupPresenter extends PresenterWidget<LocationPopupPresenter.IView> implements NavigationHandler {
+public class LocationPopupPresenter extends
+		PresenterWidget<LocationPopupPresenter.IView> implements
+		NavigationHandler {
 
 	/**
 	 * 
@@ -38,15 +40,16 @@ public class LocationPopupPresenter extends PresenterWidget<LocationPopupPresent
 
 	private final IView view_;
 	private final RPCLocationAsync rpcLocation_;
-	private final EventBus eventBus_;
+	// private final EventBus eventBus_;
 	private HandlerRegistration handlerRegistration;
 
 	@Inject
-	public LocationPopupPresenter(RPCLocationAsync rpcLocation, EventBus eventBus, IView view) {
+	public LocationPopupPresenter(RPCLocationAsync rpcLocation,
+			EventBus eventBus, IView view) {
 		super(eventBus, view);
 
 		view_ = view;
-		eventBus_ = eventBus;
+		// eventBus_ = eventBus;
 		rpcLocation_ = rpcLocation;
 	}
 

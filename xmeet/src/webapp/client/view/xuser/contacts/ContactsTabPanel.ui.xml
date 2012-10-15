@@ -37,9 +37,9 @@
 	</ui:style>
 	<g:FlowPanel>
 		<g:FlowPanel ui:field="tabPanel" styleName="{style.menu}">
-			<g:Label text="follow" ui:field="follow" styleName="{style.menuLabelInactive}" />
-			<g:Label text="follower" ui:field="follower" styleName="{style.menuLabelInactive}" />
-			<g:Label text="request" ui:field="request" styleName="{style.menuLabelInactive}" />
+			<g:Label text="subscribed to" ui:field="follow" styleName="{style.menuLabelInactive}" />
+			<g:Label text="subscriber" ui:field="follower" styleName="{style.menuLabelInactive}" />
+			<g:Label text="requests" ui:field="request" styleName="{style.menuLabelInactive}" />
 		</g:FlowPanel>
 		<g:SimplePanel ui:field="content">
 			<g:Label ui:field="loading" styleName="loading" />

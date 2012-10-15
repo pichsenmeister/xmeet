@@ -1,0 +1,2 @@
+serviceClass: webapp.client.rpc.xposting.RPCPosting
+path: 844A4A91F499EC277FB89D6F60E38032.gwt.rpc

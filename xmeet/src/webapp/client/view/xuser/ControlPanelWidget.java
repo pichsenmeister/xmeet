@@ -23,7 +23,8 @@ import com.gwtplatform.mvp.client.ViewImpl;
  * @author David Pichsenmeister
  */
 @Singleton
-public class ControlPanelWidget extends ViewImpl implements ControlPanelPresenterWidget.IView {
+public class ControlPanelWidget extends ViewImpl implements
+		ControlPanelPresenterWidget.IView {
 
 	public static final int WIDTH = 980;
 	public static final int MARGIN = 15;
@@ -75,11 +76,11 @@ public class ControlPanelWidget extends ViewImpl implements ControlPanelPresente
 		hPanel.getElement().getStyle().setFloat(Style.Float.RIGHT);
 
 		email_ = new XTextBox();
-		email_.setMaxLength(15);
 		email_.setStyleName(STYLE_TEXT);
 		email_.getElement().getStyle().setPadding(TEXT_PADDING, Unit.PX);
 		email_.getElement().getStyle().setMarginTop(TEXT_MARGIN_TOP, Unit.PX);
-		email_.getElement().getStyle().setMarginRight(TEXT_MARGIN_RIGHT, Unit.PX);
+		email_.getElement().getStyle()
+				.setMarginRight(TEXT_MARGIN_RIGHT, Unit.PX);
 		email_.setSize(TEXT_WIDTH + "px", TEXT_HEIGHT + "px");
 		email_.setPlaceholder(USERNAME);
 		hPanel.add(email_);
@@ -87,15 +88,18 @@ public class ControlPanelWidget extends ViewImpl implements ControlPanelPresente
 		password_ = new XPasswordBox();
 		password_.setStyleName(STYLE_PASS);
 		password_.getElement().getStyle().setPadding(TEXT_PADDING, Unit.PX);
-		password_.getElement().getStyle().setMarginTop(TEXT_MARGIN_TOP, Unit.PX);
-		password_.getElement().getStyle().setMarginRight(TEXT_MARGIN_RIGHT, Unit.PX);
+		password_.getElement().getStyle()
+				.setMarginTop(TEXT_MARGIN_TOP, Unit.PX);
+		password_.getElement().getStyle()
+				.setMarginRight(TEXT_MARGIN_RIGHT, Unit.PX);
 		password_.setSize(TEXT_WIDTH + "px", TEXT_HEIGHT + "px");
 		password_.setPlaceholder(PASSWORD);
 		hPanel.add(password_);
 
 		login_ = new XButton(LOGIN);
 		login_.getElement().getStyle().setMarginTop(MARGIN_BUTTON_TOP, Unit.PX);
-		login_.getElement().getStyle().setMarginRight(MARGIN_BUTTON_RIGHT, Unit.PX);
+		login_.getElement().getStyle()
+				.setMarginRight(MARGIN_BUTTON_RIGHT, Unit.PX);
 		hPanel.add(login_);
 		login_.addClickHandler(new ClickHandler() {
 

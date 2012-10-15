@@ -7,8 +7,10 @@ import webapp.client.callback.ICallback;
 import webapp.client.callback.ITypedCallback;
 import webapp.client.event.RevealPlaceEvent;
 import webapp.client.event.XNameToken;
+import webapp.client.presenter.xlocation.ShowLocationPopupPresenter;
 import webapp.client.presenter.xuser.LoggedInGatekeeper;
 import webapp.client.rpc.xlocation.RPCLocationAsync;
+import webapp.model.XLocation;
 import webapp.model.XLocationEntry;
 import webapp.model.XUser;
 
@@ -18,13 +20,15 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.gwtplatform.mvp.client.PresenterWidget;
 import com.gwtplatform.mvp.client.View;
+import com.gwtplatform.mvp.client.proxy.RevealRootPopupContentEvent;
 
 /**
  * the presenter for news
  * 
  * @author David Pichsenmeister
  */
-public class NewsWidgetPresenter extends PresenterWidget<NewsWidgetPresenter.IView> {
+public class NewsWidgetPresenter extends
+		PresenterWidget<NewsWidgetPresenter.IView> {
 
 	/**
 	 * the interface for the news view
@@ -37,6 +41,8 @@ public class NewsWidgetPresenter extends PresenterWidget<NewsWidgetPresenter.IVi
 		void addLocations(List<XLocationEntry> entries);
 
 		void setCallbackUser(ITypedCallback<XUser> callback);
+
+		void setCallbackLocation(ITypedCallback<XLocation> callback);
 
 		void setCallbackMore(ICallback callback);
 
@@ -54,6 +60,8 @@ public class NewsWidgetPresenter extends PresenterWidget<NewsWidgetPresenter.IVi
 
 	@Inject
 	private Provider<LoggedInGatekeeper> pGatekeeper_;
+	@Inject
+	private Provider<ShowLocationPopupPresenter> pLocation_;
 
 	/**
 	 * the constructor
@@ -66,7 +74,8 @@ public class NewsWidgetPresenter extends PresenterWidget<NewsWidgetPresenter.IVi
 	 *            the view
 	 */
 	@Inject
-	public NewsWidgetPresenter(RPCLocationAsync rpcLocation, EventBus eventBus, IView view) {
+	public NewsWidgetPresenter(RPCLocationAsync rpcLocation, EventBus eventBus,
+			IView view) {
 		super(eventBus, view);
 
 		view_ = view;
@@ -84,7 +93,16 @@ public class NewsWidgetPresenter extends PresenterWidget<NewsWidgetPresenter.IVi
 			public void execute(XUser type) {
 				HashMap<String, String> params = new HashMap<String, String>();
 				params.put("id", loggedUser_.getUserID().toString());
-				eventBus_.fireEvent(new RevealPlaceEvent(XNameToken.USER, params));
+				eventBus_.fireEvent(new RevealPlaceEvent(XNameToken.USER,
+						params));
+			}
+		});
+
+		view_.setCallbackLocation(new ITypedCallback<XLocation>() {
+
+			@Override
+			public void execute(XLocation type) {
+				showLocation(type);
 			}
 		});
 
@@ -109,28 +127,37 @@ public class NewsWidgetPresenter extends PresenterWidget<NewsWidgetPresenter.IVi
 	}
 
 	private void loadLocationEntries() {
-		rpcLocation_.loadLocationEntries(loggedUser_, start_, MAX_RESULT, new AsyncCallback<List<XLocationEntry>>() {
+		rpcLocation_.loadLocationEntries(loggedUser_, start_, MAX_RESULT,
+				new AsyncCallback<List<XLocationEntry>>() {
 
-			@Override
-			public void onSuccess(List<XLocationEntry> result) {
-				if (start_ == 0) {
-					view_.setLocations(result);
-				} else {
-					view_.addLocations(result);
-				}
-				if (result.size() < MAX_RESULT) {
-					view_.enableShowMore(false);
-				} else {
-					view_.enableShowMore(true);
-				}
-				start_ += MAX_RESULT;
-			}
+					@Override
+					public void onSuccess(List<XLocationEntry> result) {
+						if (start_ == 0) {
+							view_.setLocations(result);
+						} else {
+							view_.addLocations(result);
+						}
+						if (result.size() < MAX_RESULT) {
+							view_.enableShowMore(false);
+						} else {
+							view_.enableShowMore(true);
+						}
+						start_ += MAX_RESULT;
+					}
 
-			@Override
-			public void onFailure(Throwable caught) {
-				System.out.println("error loading location entries for user: " + loggedUser_.getName());
-			}
-		});
+					@Override
+					public void onFailure(Throwable caught) {
+						System.out
+								.println("error loading location entries for user: "
+										+ loggedUser_.getName());
+					}
+				});
+	}
+
+	private void showLocation(XLocation location) {
+		ShowLocationPopupPresenter loc = pLocation_.get();
+		loc.setLocation(location);
+		RevealRootPopupContentEvent.fire(this, loc);
 	}
 
 }

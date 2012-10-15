@@ -33,8 +33,8 @@ public class UserPageView extends ViewImpl implements UserPagePresenter.IView {
 	private static final int TOP_CONTROL = 110;
 	private static final int TOP_USER_CONTROL = 70;
 
-	public static final String USER_WAIT_MSG = "anfrage widerrufen";
-	public static final String USER_PLUS_MSG = "du lauschst";
+	public static final String USER_WAIT_MSG = "cancel request";
+	public static final String USER_PLUS_MSG = "subscribed";
 
 	public static final String PLUS_SIGN = "+";
 	public static final String MINUS_SIGN = "-";
@@ -242,9 +242,11 @@ public class UserPageView extends ViewImpl implements UserPagePresenter.IView {
 		place_.setText(user.getPlace());
 
 		String web = user.getWebsite();
-		website_.setTarget("_blank");
-		website_.setText(web.replaceFirst("http://", ""));
-		website_.setHref(web);
+		if (user.getWebsite() != null) {
+			website_.setTarget("_blank");
+			website_.setText(web.replaceFirst("http://", ""));
+			website_.setHref(web);
+		}
 	}
 
 	@Override
@@ -304,7 +306,8 @@ public class UserPageView extends ViewImpl implements UserPagePresenter.IView {
 	public void isUserLogged(boolean logged) {
 		if (logged) {
 			top_.setStyleName(STYLE_USER_CONTROL);
-			content_.getElement().getStyle().setMarginTop(TOP_USER_CONTROL, Unit.PX);
+			content_.getElement().getStyle()
+					.setMarginTop(TOP_USER_CONTROL, Unit.PX);
 		} else {
 			top_.setStyleName(STYLE_CONTROL);
 			content_.getElement().getStyle().setMarginTop(TOP_CONTROL, Unit.PX);

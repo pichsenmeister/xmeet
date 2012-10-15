@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/xmeet/!svn/ver/28/xmeet/src/webapp/client/presenter/xlocation
+END
+CreateWidgetPresenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/xmeet/!svn/ver/32/xmeet/src/webapp/client/presenter/xlocation/CreateWidgetPresenter.java
+END
+LocationPopupPresenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/xmeet/!svn/ver/28/xmeet/src/webapp/client/presenter/xlocation/LocationPopupPresenter.java
+END
+CreatePresenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/xmeet/!svn/ver/32/xmeet/src/webapp/client/presenter/xlocation/CreatePresenter.java
+END

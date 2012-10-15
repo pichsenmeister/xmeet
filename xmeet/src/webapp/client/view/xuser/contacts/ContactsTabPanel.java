@@ -62,16 +62,16 @@ public class ContactsTabPanel extends Composite {
 	@UiHandler("follow")
 	void onFollowClick(ClickEvent event) {
 		if (callbackSelect_ != null) {
-			setActiveTab(EnumWidget.LISTENTO);
-			callbackSelect_.execute(EnumWidget.LISTENTO);
+			setActiveTab(EnumWidget.SUBSCRIBEDTO);
+			callbackSelect_.execute(EnumWidget.SUBSCRIBEDTO);
 		}
 	}
 
 	@UiHandler("follower")
 	void onFollowerClick(ClickEvent event) {
 		if (callbackSelect_ != null) {
-			setActiveTab(EnumWidget.LISTENER);
-			callbackSelect_.execute(EnumWidget.LISTENER);
+			setActiveTab(EnumWidget.SUBSCRIBER);
+			callbackSelect_.execute(EnumWidget.SUBSCRIBER);
 		}
 	}
 
@@ -83,14 +83,14 @@ public class ContactsTabPanel extends Composite {
 		}
 	}
 
-	private void setActiveTab(EnumWidget value) {
+	public void setActiveTab(EnumWidget value) {
 		switch (value) {
-		case LISTENTO:
+		case SUBSCRIBEDTO:
 			follow.setStyleName(style.menuLabelActive());
 			follower.setStyleName(style.menuLabelInactive());
 			request.setStyleName(style.menuLabelInactive());
 			break;
-		case LISTENER:
+		case SUBSCRIBER:
 			follow.setStyleName(style.menuLabelInactive());
 			follower.setStyleName(style.menuLabelActive());
 			request.setStyleName(style.menuLabelInactive());

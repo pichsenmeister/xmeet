@@ -1,0 +1,59 @@
+.xmessage-panel-new {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	cursor: pointer;
+	cursor: hand;
+	margin-bottom: 15px;	
+	padding: 5px;
+	background: #FFF6D6;
+}
+.xmessage-panel-old {
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	cursor: pointer;
+	cursor: hand;
+	margin-bottom: 15px;	
+	padding: 5px;
+	background: #EEE;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.xmessage-panel-new:hover {
+  background: #FFF2BF;
+}
+.xmessage-panel-old:hover {
+  background: #DDD;
+}
+.xmessage-panel-username {
+	float: left;
+	font-size: 16px;
+	font-weight: bold;
+	margin-right: 10px;	
+}
+.xmessage-panel-name {
+	padding-top: 2px;
+	padding-bottom: 1px;
+	color: #333;
+	font-style: italic;
+	text-shadow: 0px 1px 0px #ccc;
+}
+.xmessage-panel-date {
+	margin-top: 2px;
+	color: #888;
+}
+.xmessage-panel-date-date {
+	float: left;
+	margin-right: 5px;
+}
+.xmessage-panel-text {
+	margin-left: 53px;
+	margin-top: 10px;
+}
+.xmessage-panel-image {
+	width: 48px;
+	height: 48px;
+	margin-right: 5px;
+	float: left;
+}

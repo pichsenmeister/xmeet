@@ -1,0 +1,2 @@
+serviceClass: webapp.client.rpc.xmessage.RPCMessage
+path: CCF2EDBD726D74C4B472190A34B1D97E.gwt.rpc

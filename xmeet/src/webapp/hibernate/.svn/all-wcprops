@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/xmeet/!svn/ver/24/xmeet/src/webapp/hibernate
+END
+XUserSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/xmeet/!svn/ver/3/xmeet/src/webapp/hibernate/XUserSeq.java
+END
+HibernateUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/xmeet/!svn/ver/3/xmeet/src/webapp/hibernate/HibernateUtil.java
+END
+XMediaSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/xmeet/!svn/ver/17/xmeet/src/webapp/hibernate/XMediaSeq.java
+END
+XEventSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/xmeet/!svn/ver/3/xmeet/src/webapp/hibernate/XEventSeq.java
+END
+XMessageSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/xmeet/!svn/ver/6/xmeet/src/webapp/hibernate/XMessageSeq.java
+END
+XPostSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/xmeet/!svn/ver/17/xmeet/src/webapp/hibernate/XPostSeq.java
+END
+XLocationSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/xmeet/!svn/ver/24/xmeet/src/webapp/hibernate/XLocationSeq.java
+END
+XEventFinderSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/xmeet/!svn/ver/31/xmeet/src/webapp/hibernate/XEventFinderSeq.java
+END
+XContactSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/xmeet/!svn/ver/17/xmeet/src/webapp/hibernate/XContactSeq.java
+END
+XSettingSeq.java
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/xmeet/!svn/ver/17/xmeet/src/webapp/hibernate/XSettingSeq.java
+END

@@ -1,0 +1,114 @@
+com.google.gwt.i18n.shared.impl.DateRecord, true, true, true, true, com.google.gwt.i18n.shared.impl.DateRecord/3375188634, 3375188634
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException, true, true, true, true, com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException/3936916533, 3936916533
+com.google.gwt.user.client.rpc.RpcTokenException, true, true, false, false, com.google.gwt.user.client.rpc.RpcTokenException/2345075298, 2345075298
+com.google.gwt.user.client.rpc.XsrfToken, false, false, true, true, com.google.gwt.user.client.rpc.XsrfToken/4254043109, 4254043109
+java.lang.Boolean, true, true, true, true, java.lang.Boolean/476441737, 476441737
+java.lang.Byte, true, true, true, true, java.lang.Byte/1571082439, 1571082439
+java.lang.Character, true, true, true, true, java.lang.Character/2663399736, 2663399736
+java.lang.Double, true, true, true, true, java.lang.Double/858496421, 858496421
+java.lang.Exception, true, false, true, false, java.lang.Exception/1920171873, 1920171873
+java.lang.Float, true, true, true, true, java.lang.Float/1718559123, 1718559123
+java.lang.Integer, true, true, true, true, java.lang.Integer/3438268394, 3438268394
+java.lang.Long, true, true, true, true, java.lang.Long/4227064769, 4227064769
+java.lang.Number, true, false, true, false, java.lang.Number/300033342, 300033342
+java.lang.RuntimeException, true, false, true, false, java.lang.RuntimeException/515124647, 515124647
+java.lang.Short, true, true, true, true, java.lang.Short/551743396, 551743396
+java.lang.String, true, true, true, true, java.lang.String/2004016611, 2004016611
+[Ljava.lang.String;, true, true, true, true, [Ljava.lang.String;/2600011424, 2600011424
+java.lang.Throwable, true, false, true, false, java.lang.Throwable/2953622131, 2953622131
+java.sql.Date, true, true, true, true, java.sql.Date/3996530531, 3996530531
+java.sql.Time, true, true, true, true, java.sql.Time/1816797103, 1816797103
+java.sql.Timestamp, true, true, true, true, java.sql.Timestamp/1769758459, 1769758459
+java.util.ArrayList, true, true, true, true, java.util.ArrayList/4159755760, 4159755760
+java.util.Arrays$ArrayList, true, true, true, true, java.util.Arrays$ArrayList/2507071751, 2507071751
+java.util.Collections$EmptyList, true, true, true, true, java.util.Collections$EmptyList/4157118744, 4157118744
+java.util.Collections$EmptyMap, true, true, true, true, java.util.Collections$EmptyMap/4174664486, 4174664486
+java.util.Collections$EmptySet, true, true, true, true, java.util.Collections$EmptySet/3523698179, 3523698179
+java.util.Collections$SingletonList, true, true, true, true, java.util.Collections$SingletonList/1586180994, 1586180994
+java.util.Date, true, true, true, true, java.util.Date/3385151746, 3385151746
+java.util.HashMap, true, true, true, true, java.util.HashMap/1797211028, 1797211028
+java.util.HashSet, true, true, true, true, java.util.HashSet/3273092938, 3273092938
+java.util.IdentityHashMap, true, true, true, true, java.util.IdentityHashMap/1839153020, 1839153020
+java.util.LinkedHashMap, true, true, true, true, java.util.LinkedHashMap/3008245022, 3008245022
+java.util.LinkedHashSet, true, true, true, true, java.util.LinkedHashSet/1826081506, 1826081506
+java.util.LinkedList, true, true, true, true, java.util.LinkedList/3953877921, 3953877921
+java.util.Stack, true, true, true, true, java.util.Stack/1346942793, 1346942793
+java.util.TreeMap, true, true, true, true, java.util.TreeMap/1493889780, 1493889780
+java.util.TreeSet, true, true, true, true, java.util.TreeSet/4043497002, 4043497002
+java.util.Vector, true, true, true, true, java.util.Vector/3057315478, 3057315478
+[Lnet.sf.gilead.pojo.base.ILightEntity;, true, true, true, true, [Lnet.sf.gilead.pojo.base.ILightEntity;/3861184979, 3861184979
+net.sf.gilead.pojo.gwt.GwtSerializableId, true, true, true, true, net.sf.gilead.pojo.gwt.GwtSerializableId/2844303195, 2844303195
+[Lnet.sf.gilead.pojo.gwt.GwtSerializableId;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.GwtSerializableId;/2285567209, 2285567209
+[Lnet.sf.gilead.pojo.gwt.IGwtSerializableParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.IGwtSerializableParameter;/2071697777, 2071697777
+net.sf.gilead.pojo.gwt.LightEntity, true, false, true, false, net.sf.gilead.pojo.gwt.LightEntity/1555581365, 1555581365
+[Lnet.sf.gilead.pojo.gwt.LightEntity;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.LightEntity;/3449970074, 3449970074
+net.sf.gilead.pojo.gwt.SerializedParameter, true, true, true, true, net.sf.gilead.pojo.gwt.SerializedParameter/132341980, 132341980
+[Lnet.sf.gilead.pojo.gwt.SerializedParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.SerializedParameter;/2694220992, 2694220992
+net.sf.gilead.pojo.gwt.basic.BooleanParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.BooleanParameter/2694046737, 2694046737
+[Lnet.sf.gilead.pojo.gwt.basic.BooleanParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.BooleanParameter;/659978017, 659978017
+net.sf.gilead.pojo.gwt.basic.ByteParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.ByteParameter/2737926916, 2737926916
+[Lnet.sf.gilead.pojo.gwt.basic.ByteParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.ByteParameter;/2840751033, 2840751033
+net.sf.gilead.pojo.gwt.basic.CharacterParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.CharacterParameter/3361494208, 3361494208
+[Lnet.sf.gilead.pojo.gwt.basic.CharacterParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.CharacterParameter;/537814816, 537814816
+net.sf.gilead.pojo.gwt.basic.DateParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.DateParameter/3691507541, 3691507541
+[Lnet.sf.gilead.pojo.gwt.basic.DateParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.DateParameter;/2753979251, 2753979251
+net.sf.gilead.pojo.gwt.basic.DoubleParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.DoubleParameter/367474200, 367474200
+[Lnet.sf.gilead.pojo.gwt.basic.DoubleParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.DoubleParameter;/2828072013, 2828072013
+net.sf.gilead.pojo.gwt.basic.FloatParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.FloatParameter/2266458363, 2266458363
+[Lnet.sf.gilead.pojo.gwt.basic.FloatParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.FloatParameter;/1883925208, 1883925208
+net.sf.gilead.pojo.gwt.basic.IntegerParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.IntegerParameter/3421404974, 3421404974
+[Lnet.sf.gilead.pojo.gwt.basic.IntegerParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.IntegerParameter;/408650838, 408650838
+net.sf.gilead.pojo.gwt.basic.LongParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.LongParameter/1349029528, 1349029528
+[Lnet.sf.gilead.pojo.gwt.basic.LongParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.LongParameter;/3419125299, 3419125299
+net.sf.gilead.pojo.gwt.basic.ShortParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.ShortParameter/3591328655, 3591328655
+[Lnet.sf.gilead.pojo.gwt.basic.ShortParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.ShortParameter;/1337822491, 1337822491
+net.sf.gilead.pojo.gwt.basic.StringParameter, true, true, true, true, net.sf.gilead.pojo.gwt.basic.StringParameter/2783524083, 2783524083
+[Lnet.sf.gilead.pojo.gwt.basic.StringParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.basic.StringParameter;/2215125269, 2215125269
+net.sf.gilead.pojo.gwt.collection.ListParameter, true, true, true, true, net.sf.gilead.pojo.gwt.collection.ListParameter/3890945144, 3890945144
+[Lnet.sf.gilead.pojo.gwt.collection.ListParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.collection.ListParameter;/2269834606, 2269834606
+net.sf.gilead.pojo.gwt.collection.MapParameter, true, true, true, true, net.sf.gilead.pojo.gwt.collection.MapParameter/1940144086, 1940144086
+[Lnet.sf.gilead.pojo.gwt.collection.MapParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.collection.MapParameter;/1810339670, 1810339670
+net.sf.gilead.pojo.gwt.collection.SetParameter, true, true, true, true, net.sf.gilead.pojo.gwt.collection.SetParameter/3311896573, 3311896573
+[Lnet.sf.gilead.pojo.gwt.collection.SetParameter;, true, true, true, true, [Lnet.sf.gilead.pojo.gwt.collection.SetParameter;/3930796824, 3930796824
+webapp.client.rpc.xlocation.RPCLocation, false, false, false, false, _, 1862820930
+webapp.model.XContent, true, true, true, true, webapp.model.XContent/3456698164, 3456698164
+@ClientFields,webapp.model.XContent,contentID,contentName,content
+[Lwebapp.model.XContent;, true, true, true, true, [Lwebapp.model.XContent;/1893190399, 1893190399
+webapp.model.XEvent, true, true, true, true, webapp.model.XEvent/1381190455, 1381190455
+@ClientFields,webapp.model.XEvent,eventID,eventTitle,eventPlace,location,eventBegin,eventDescription,eventCreation,owner,xposting,eventType
+[Lwebapp.model.XEvent;, true, true, true, true, [Lwebapp.model.XEvent;/2090940765, 2090940765
+webapp.model.XListenTo, true, true, true, true, webapp.model.XListenTo/981386408, 981386408
+@ClientFields,webapp.model.XListenTo,listenToId,user,status
+[Lwebapp.model.XListenTo;, true, true, true, true, [Lwebapp.model.XListenTo;/1410548430, 1410548430
+webapp.model.XListener, true, true, true, true, webapp.model.XListener/3734861082, 3734861082
+@ClientFields,webapp.model.XListener,listenerId,user,status
+[Lwebapp.model.XListener;, true, true, true, true, [Lwebapp.model.XListener;/3929711849, 3929711849
+webapp.model.XLocation, true, true, true, true, webapp.model.XLocation/3188479273, 3188479273
+@ClientFields,webapp.model.XLocation,locationID,name,country,city,zip,address,longitude,latitude
+webapp.model.XLocationEntry, true, true, true, true, webapp.model.XLocationEntry/2529972866, 2529972866
+@ClientFields,webapp.model.XLocationEntry,entryID,locationName,location,user,created,text
+[Lwebapp.model.XLocationEntry;, true, true, true, true, [Lwebapp.model.XLocationEntry;/767190637, 767190637
+[Lwebapp.model.XLocation;, true, true, true, true, [Lwebapp.model.XLocation;/3736167039, 3736167039
+webapp.model.XMedia, true, true, true, true, webapp.model.XMedia/3501701077, 3501701077
+@ClientFields,webapp.model.XMedia,mediaID,mediaName,mediaURL,mediaType,owner
+[Lwebapp.model.XMedia;, true, true, true, true, [Lwebapp.model.XMedia;/1288456424, 1288456424
+webapp.model.XMessage, true, true, true, true, webapp.model.XMessage/1802305816, 1802305816
+@ClientFields,webapp.model.XMessage,messageId,sender,reciever,message,time,read
+[Lwebapp.model.XMessage;, true, true, true, true, [Lwebapp.model.XMessage;/1961001868, 1961001868
+webapp.model.XPosting, true, true, true, true, webapp.model.XPosting/1519964208, 1519964208
+@ClientFields,webapp.model.XPosting,postingID,date,text,owner,xevent
+[Lwebapp.model.XPosting;, true, true, true, true, [Lwebapp.model.XPosting;/2582301694, 2582301694
+webapp.model.XSettings, true, true, true, true, webapp.model.XSettings/4200323108, 4200323108
+@ClientFields,webapp.model.XSettings,settingsId,publicAccount,notificationEvent,notificationMessage,notificationListener,notificationUpdates,visibility
+[Lwebapp.model.XSettings;, true, true, true, true, [Lwebapp.model.XSettings;/2205405610, 2205405610
+webapp.model.XUser, true, true, true, true, webapp.model.XUser/1907351959, 1907351959
+@ClientFields,webapp.model.XUser,userID,name,userName,email,password,image,userStatus,listenTo,listener,requestTo,requestFrom,settings,website,place,lastLogin,locations
+webapp.model.XUserEvent, true, true, true, true, webapp.model.XUserEvent/1924455372, 1924455372
+@ClientFields,webapp.model.XUserEvent,xuser,xevent,status,time
+[Lwebapp.model.XUserEvent;, true, true, true, true, [Lwebapp.model.XUserEvent;/3693822850, 3693822850
+[Lwebapp.model.XUser;, true, true, true, true, [Lwebapp.model.XUser;/2552224866, 2552224866
+webapp.model.enums.XContactStatus, true, true, true, true, webapp.model.enums.XContactStatus/1304342263, 1304342263
+webapp.model.enums.XEventStatus, true, true, true, true, webapp.model.enums.XEventStatus/3294488247, 3294488247
+webapp.model.enums.XMediaType, true, true, true, true, webapp.model.enums.XMediaType/1982066912, 1982066912
+webapp.model.enums.XUserStatus, true, true, true, true, webapp.model.enums.XUserStatus/2688968880, 2688968880
+webapp.model.enums.XVisibility, true, true, true, true, webapp.model.enums.XVisibility/3534849576, 3534849576

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/xmeet/!svn/ver/28/xmeet/src/webapp/client/view/xuser/contacts
+END
+ContactsTabPanel.ui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/view/xuser/contacts/ContactsTabPanel.ui.xml
+END
+ContactsTabPanel.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/view/xuser/contacts/ContactsTabPanel.java
+END
+UserContactWidget.ui.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/view/xuser/contacts/UserContactWidget.ui.xml
+END
+ContactsView.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/view/xuser/contacts/ContactsView.java
+END
+UserContactWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/view/xuser/contacts/UserContactWidget.java
+END

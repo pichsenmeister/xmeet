@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/xmeet/!svn/ver/24/xmeet/src/webapp/client/event/xlocation
+END
+XLocationPopupEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/xmeet/!svn/ver/24/xmeet/src/webapp/client/event/xlocation/XLocationPopupEvent.java
+END
+IXLocationPopupEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/xmeet/!svn/ver/24/xmeet/src/webapp/client/event/xlocation/IXLocationPopupEventHandler.java
+END

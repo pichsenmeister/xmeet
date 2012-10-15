@@ -1,0 +1,2 @@
+serviceClass: webapp.client.rpc.xlocation.RPCLocation
+path: 3B7F0D4A07320F1F0A9B5E6F4CB8DEE6.gwt.rpc

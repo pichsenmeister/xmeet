@@ -1,0 +1,2 @@
+serviceClass: webapp.client.RPCService
+path: 50C49E1F3E015301829182FAA7299739.gwt.rpc

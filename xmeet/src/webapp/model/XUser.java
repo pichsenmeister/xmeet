@@ -32,12 +32,10 @@ public class XUser extends LightEntity implements Serializable {
 	@Column(length = 50, nullable = false, unique = true)
 	private String email;
 
-	@Column(length = 20, nullable = false)
+	@Column(length = 255, nullable = false)
 	private String password;
 
-	@ManyToOne(
-			cascade = { CascadeType.PERSIST, CascadeType.MERGE },
-			fetch = FetchType.EAGER)
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@JoinColumn(name = "media_mediaid")
 	private XMedia image;
 

@@ -21,7 +21,8 @@ import com.gwtplatform.mvp.client.ViewImpl;
  * 
  * @author David Pichsenmeister
  */
-public class RegisterWidget extends ViewImpl implements RegisterWidgetPresenter.IView {
+public class RegisterWidget extends ViewImpl implements
+		RegisterWidgetPresenter.IView {
 
 	public static final int WIDTH_TOTAL = 300;
 	public static final int WIDTH = 300;
@@ -30,15 +31,15 @@ public class RegisterWidget extends ViewImpl implements RegisterWidgetPresenter.
 	public static final int FONT_SIZE = 20;
 	public static final int PADDING = 5;
 
-	public static final String REGISTER = "registrieren";
-	public static final String USERNAME = "benutzername";
-	public static final String PASSWORD = "passwort";
-	public static final String NAME = "vollst\u00E4ndiger name";
+	public static final String REGISTER = "register";
+	public static final String USERNAME = "username";
+	public static final String PASSWORD = "password";
+	public static final String NAME = "name";
 	public static final String EMAIL = "email";
-	public static final String USERNAME_MSG = "dieser benutzername ungültig.";
-	public static final String PASSWORD_MSG = "das password ist zu kurz.";
-	public static final String NAME_MSG = "dieser benutzername ist bereits vergeben.";
-	public static final String EMAIL_MSG = "email ist nicht korrekt.";
+	public static final String USERNAME_MSG = "username not valid";
+	public static final String PASSWORD_MSG = "password too short";
+	public static final String NAME_MSG = "username already taken";
+	public static final String EMAIL_MSG = "email not valid";
 
 	private XButton register_;
 	private XTextBox userName_;
@@ -65,31 +66,34 @@ public class RegisterWidget extends ViewImpl implements RegisterWidgetPresenter.
 		userName_.setRequired(true);
 		userName_.setPlaceholder(USERNAME);
 		mainPanel_.add(userName_);
-		mainPanel_.setCellHorizontalAlignment(userName_, HasHorizontalAlignment.ALIGN_CENTER);
+		mainPanel_.setCellHorizontalAlignment(userName_,
+				HasHorizontalAlignment.ALIGN_CENTER);
 
 		name_ = new XTextBox();
-		name_.setMaxLength(30);
 		name_.setPlaceholder(NAME);
 		mainPanel_.add(name_);
-		mainPanel_.setCellHorizontalAlignment(name_, HasHorizontalAlignment.ALIGN_CENTER);
+		mainPanel_.setCellHorizontalAlignment(name_,
+				HasHorizontalAlignment.ALIGN_CENTER);
 
 		email_ = new XTextBox();
-		email_.setMaxLength(50);
 		email_.setRequired(true);
 		email_.setPlaceholder(EMAIL);
 		mainPanel_.add(email_);
-		mainPanel_.setCellHorizontalAlignment(email_, HasHorizontalAlignment.ALIGN_CENTER);
+		mainPanel_.setCellHorizontalAlignment(email_,
+				HasHorizontalAlignment.ALIGN_CENTER);
 
 		password_ = new XPasswordBox();
 		password_.setRequired(true);
 		password_.setPlaceholder(PASSWORD);
 		mainPanel_.add(password_);
-		mainPanel_.setCellHorizontalAlignment(password_, HasHorizontalAlignment.ALIGN_CENTER);
+		mainPanel_.setCellHorizontalAlignment(password_,
+				HasHorizontalAlignment.ALIGN_CENTER);
 
 		register_ = new XButton(REGISTER);
 		register_.setWidth(WIDTH_BUTTON + "px");
 		mainPanel_.add(register_);
-		mainPanel_.setCellHorizontalAlignment(register_, HasHorizontalAlignment.ALIGN_CENTER);
+		mainPanel_.setCellHorizontalAlignment(register_,
+				HasHorizontalAlignment.ALIGN_CENTER);
 		register_.addClickHandler(new ClickHandler() {
 
 			@Override
@@ -149,7 +153,8 @@ public class RegisterWidget extends ViewImpl implements RegisterWidgetPresenter.
 
 	@Override
 	public boolean validate() {
-		return userName_.validate() && email_.validate() && password_.validate();
+		return userName_.validate() && email_.validate()
+				&& password_.validate();
 	}
 
 }

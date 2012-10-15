@@ -1,0 +1,2 @@
+serviceClass: webapp.client.rpc.xevent.RPCEvent
+path: D585FB09AA49FD71E2D726DED06C2836.gwt.rpc

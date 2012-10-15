@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  
+  <!-- ########### servlets ########### -->
+  <servlet>
+    <servlet-name>rpcServletUser</servlet-name>
+    <servlet-class>webapp.server.RPCUserImpl</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>rpcServletContent</servlet-name>
+    <servlet-class>webapp.server.RPCContentImpl</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>rpcServletMedia</servlet-name>
+    <servlet-class>webapp.server.RPCMediaImpl</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>rpcServletLocation</servlet-name>
+    <servlet-class>webapp.server.RPCLocationImpl</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>UserPageServlet</servlet-name>
+    <servlet-class>webapp.server.UserPageServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>webapp.server.UploadServlet</servlet-class>
+  </servlet>
+  
+  <!-- ########### servlet mapping ########### -->
+  
+  <servlet-mapping>
+    <servlet-name>rpcServletUser</servlet-name>
+    <url-pattern>/xmeet/greet/user</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>rpcServletContent</servlet-name>
+    <url-pattern>/xmeet/greet/content</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>rpcServletMedia</servlet-name>
+    <url-pattern>/xmeet/greet/media</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>rpcServletLocation</servlet-name>
+    <url-pattern>/xmeet/greet/location</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>UserPageServlet</servlet-name>
+    <url-pattern>/user/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/xmeet/upload</url-pattern>
+  </servlet-mapping>
+  
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>Xmeet.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>

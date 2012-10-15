@@ -1,0 +1,44 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.card {
+			background-color: #eee;
+			border-radius: 5px;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-o-border-radius: 5px;
+			padding: 10px;	
+		}
+		.image {
+			width: 32px;
+			height: 32px;
+			border-radius: 5px;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-o-border-radius: 5px;
+			float: left;	
+			margin-right: 5px;
+		}
+		.username {
+			font-size: 14px;
+			font-weight: bold;	
+			float: left;
+			margin-right: 5px;
+		}
+		.name {
+			color: #888;	
+			margin-top: 1px;
+		}
+		.location {
+			font-weight: bold;
+			margin-top: 2px;	
+		}
+	</ui:style>
+	<g:FlowPanel addStyleNames="{style.card}" width="" height="">
+		<g:Image addStyleNames="{style.image}" width="" height="" url="xmeet/target32x32.png"/>
+		<g:Label text="david" ui:field="username" addStyleNames="{style.username}" width="" height="" />
+		<g:Label text="david pichsenmeister" ui:field="name" addStyleNames="{style.name}" width="" height="" />
+		<g:Label text="@postgarage in 10 min" ui:field="location" addStyleNames="{style.location}" width="" height=""/>
+	</g:FlowPanel>
+</ui:UiBinder> 

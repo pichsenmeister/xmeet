@@ -113,7 +113,7 @@ public interface RPCUserAsync {
 	 * @param AsyncCallback
 	 *            a new instance of AsyncCallback
 	 */
-	public void verifyContactRequest(XUser listener, XUser listenTo, XContactStatus status,
+	public void verifyContactRequest(XUser listener, XUser listenTo,
 			AsyncCallback<XUser> callback);
 
 	/**

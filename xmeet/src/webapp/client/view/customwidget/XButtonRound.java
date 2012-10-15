@@ -17,19 +17,22 @@ public class XButtonRound extends Composite {
 	interface XButtonRoundUiBinder extends UiBinder<Widget, XButtonRound> {
 	}
 
-	@UiField 
+	@UiField
 	Button input;
-	
-	public XButtonRound(String text) {
+
+	public XButtonRound() {
 		initWidget(uiBinder.createAndBindUi(this));
-		
+	}
+
+	public XButtonRound(String text) {
+		this();
 		input.setText(text);
 	}
-	
+
 	public void setText(String text) {
 		input.setText(text);
 	}
-	
+
 	public HandlerRegistration addClickHandler(ClickHandler clickHandler) {
 		return input.addClickHandler(clickHandler);
 	}
@@ -37,7 +40,7 @@ public class XButtonRound extends Composite {
 	public void setEnabled(boolean enabled) {
 		input.setEnabled(enabled);
 	}
-	
+
 	public boolean isEnabled() {
 		return input.isEnabled();
 	}

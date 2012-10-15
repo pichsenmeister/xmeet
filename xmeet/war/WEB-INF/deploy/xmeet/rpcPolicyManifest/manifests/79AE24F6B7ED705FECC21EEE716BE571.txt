@@ -1,0 +1,2 @@
+serviceClass: webapp.client.rpc.xuser.RPCUser
+path: 88362E1C196E3485F1C389D5579B3198.gwt.rpc

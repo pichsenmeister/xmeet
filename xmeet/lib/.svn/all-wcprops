@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/xmeet/!svn/ver/24/xmeet/lib
+END
+aopalliance.jar
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/xmeet/!svn/ver/3/xmeet/lib/aopalliance.jar
+END
+gwtp-all-0.6-sources.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/xmeet/!svn/ver/3/xmeet/lib/gwtp-all-0.6-sources.jar
+END
+slf4j-simple-1.5.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/xmeet/!svn/ver/3/xmeet/lib/slf4j-simple-1.5.2.jar
+END
+jta-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/xmeet/!svn/ver/3/xmeet/lib/jta-1.1.jar
+END
+javassist-3.12.0.GA.jar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/xmeet/!svn/ver/3/xmeet/lib/javassist-3.12.0.GA.jar
+END
+gilead-core-1.3.2.1839.jar
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/xmeet/!svn/ver/3/xmeet/lib/gilead-core-1.3.2.1839.jar
+END
+dom4j-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/xmeet/!svn/ver/3/xmeet/lib/dom4j-1.6.1.jar
+END
+cglib-2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/xmeet/!svn/ver/3/xmeet/lib/cglib-2.2.jar
+END
+asm-3.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/xmeet/!svn/ver/3/xmeet/lib/asm-3.2.jar
+END
+javax.inject.jar
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/xmeet/!svn/ver/3/xmeet/lib/javax.inject.jar
+END
+hibernate3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/xmeet/!svn/ver/3/xmeet/lib/hibernate3.jar
+END
+gilead-hibernate-1.3.2.1839.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/xmeet/!svn/ver/3/xmeet/lib/gilead-hibernate-1.3.2.1839.jar
+END
+commons-collections-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/xmeet/!svn/ver/3/xmeet/lib/commons-collections-3.1.jar
+END
+beanlib-hibernate-5.0.2beta.jar
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/xmeet/!svn/ver/3/xmeet/lib/beanlib-hibernate-5.0.2beta.jar
+END
+antlr-2.7.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/xmeet/!svn/ver/3/xmeet/lib/antlr-2.7.6.jar
+END
+gwtp-all-0.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/xmeet/!svn/ver/3/xmeet/lib/gwtp-all-0.6.jar
+END
+guice-snapshot.jar
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/xmeet/!svn/ver/3/xmeet/lib/guice-snapshot.jar
+END
+slf4j-api-1.6.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/xmeet/!svn/ver/3/xmeet/lib/slf4j-api-1.6.1.jar
+END
+guice-3.0.jar
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/xmeet/!svn/ver/3/xmeet/lib/guice-3.0.jar
+END
+commons-fileupload-1.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/xmeet/!svn/ver/20/xmeet/lib/commons-fileupload-1.2.2.jar
+END
+gilead4gwt-1.3.2.1839.jar
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/xmeet/!svn/ver/3/xmeet/lib/gilead4gwt-1.3.2.1839.jar
+END
+hibernate-jpa-2.0-api-1.0.0.Final.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/xmeet/!svn/ver/3/xmeet/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar
+END
+gin-1.5-post-gwt-2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/xmeet/!svn/ver/3/xmeet/lib/gin-1.5-post-gwt-2.2.jar
+END
+gwt-maps.jar
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/xmeet/!svn/ver/24/xmeet/lib/gwt-maps.jar
+END
+gwt-visualization.jar
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/xmeet/!svn/ver/3/xmeet/lib/gwt-visualization.jar
+END
+gin-1.5-pre-gwt-2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/xmeet/!svn/ver/3/xmeet/lib/gin-1.5-pre-gwt-2.2.jar
+END
+postgresql-9.0-801.jdbc4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/xmeet/!svn/ver/3/xmeet/lib/postgresql-9.0-801.jdbc4.jar
+END
+log4j-1.2.16.jar
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/xmeet/!svn/ver/3/xmeet/lib/log4j-1.2.16.jar
+END
+guice-assistedinject-snapshot.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/xmeet/!svn/ver/3/xmeet/lib/guice-assistedinject-snapshot.jar
+END

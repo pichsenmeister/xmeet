@@ -3,7 +3,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import webapp.client.view.PostProcessingEngine;
+import webapp.server.PostProcessingEngine;
 
 
 public class TestPPE {

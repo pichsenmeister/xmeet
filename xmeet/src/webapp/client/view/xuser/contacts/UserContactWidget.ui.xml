@@ -1,6 +1,6 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:webapp.client.view.customwidget">
 	<ui:style>
 		.panel {
 			cursor: pointer;
@@ -28,6 +28,12 @@
 		.pm {
 			cursor: pointer;
 		}
+		.button {
+			margin-right: 5px;
+		}
+		.buttonPanel {
+			text-align: right;
+		}
 	</ui:style>
 	<g:LayoutPanel width="100%" height="40px" ui:field="panel" styleName="{style.panel}">
 		<g:layer top="4px" bottom="4px" left="10px" width="32px">
@@ -35,6 +41,13 @@
 		</g:layer>
 		<g:layer left="50px" right="10px" top="10px" bottom="10px">
 			<g:Label ui:field="name" styleName="{style.name}"/>
+		</g:layer>
+		<g:layer right="0px" width="450px" top="2px" bottom="3px">
+			<g:FlowPanel styleName="{style.buttonPanel}">
+				<p1:XButtonRound addStyleNames="{style.button}" width="35px" height="35px" ui:field="plus"/>
+				<p1:XButtonRound addStyleNames="{style.button}" width="35px" height="35px" ui:field="minus"/>
+				<p1:XButtonRound addStyleNames="{style.button}" width="35px" height="35px" ui:field="request"/>
+			</g:FlowPanel>
 		</g:layer>
 	</g:LayoutPanel>
 </ui:UiBinder> 

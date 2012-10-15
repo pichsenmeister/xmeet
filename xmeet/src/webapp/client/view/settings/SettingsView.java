@@ -51,29 +51,29 @@ public class SettingsView extends ViewImpl implements SettingsPresenter.IView {
 	public static final int HEIGHT = 669;
 	public static final int WIDTH_TEXTBOX = 300;
 
-	public static final String PROFILE = "profil";
-	public static final String PASSWORD = "passwort";
-	public static final String NOTIFICATION = "benachrichtigungen";
-	public static final String IMAGE = "profilbild";
+	public static final String PROFILE = "profile";
+	public static final String PASSWORD = "password";
+	public static final String NOTIFICATION = "notifications";
+	public static final String IMAGE = "profile-picture";
 	public static final String EXPORT_IMPORT = "import & export";
 	public static final String UPLOAD = "upload";
-	public static final String SAVE = "speichern";
+	public static final String SAVE = "save";
 
-	public static final String NAME = "vollst\u00E4ndiger name";
+	public static final String NAME = "name";
 	public static final String MAIL = "email";
-	public static final String LOCATION = "ort";
-	public static final String PRIVACY = "privatsph\u00E4re";
-	public static final String WEBSITE = "webseite";
+	public static final String LOCATION = "location";
+	public static final String PRIVACY = "privacy";
+	public static final String WEBSITE = "website";
 
-	public static final String OLD_PW = "altes passwort";
-	public static final String NEW_PW = "neues passwort";
-	public static final String REPEAT_PW = "neues passwort best\u00E4tigen";
+	public static final String OLD_PW = "old password";
+	public static final String NEW_PW = "new password";
+	public static final String REPEAT_PW = "new password again";
 
-	public static final String NOTIFICATE = "benachrichtige mich per email ...";
-	public static final String NEW_MSG = "... bei neuen nachrichten";
-	public static final String NEW_EVENT = "... bei neuen events";
-	public static final String UPDATES = "... bei updates der plattform";
-	public static final String NEW_LISTENER = "... wenn mir neue benutzer lauschen";
+	public static final String NOTIFICATE = "notification ...";
+	public static final String NEW_MSG = "... news";
+	public static final String NEW_EVENT = "... new event";
+	public static final String UPDATES = "... on updates of the platform";
+	public static final String NEW_LISTENER = "... new subscribers";
 
 	public static final String IMAGE_INFO = "max 500kb. gif, jpg, png. ";
 
@@ -247,13 +247,20 @@ public class SettingsView extends ViewImpl implements SettingsPresenter.IView {
 		});
 		panel.setWidget(5, 1, saveProfile);
 
-		panel.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_RIGHT);
-		panel.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_RIGHT);
-		panel.getCellFormatter().setHorizontalAlignment(2, 0, HasHorizontalAlignment.ALIGN_RIGHT);
-		panel.getCellFormatter().setHorizontalAlignment(3, 0, HasHorizontalAlignment.ALIGN_RIGHT);
-		panel.getCellFormatter().setHorizontalAlignment(4, 0, HasHorizontalAlignment.ALIGN_RIGHT);
-		panel.getCellFormatter().setHorizontalAlignment(5, 0, HasHorizontalAlignment.ALIGN_CENTER);
-		panel.getCellFormatter().setHorizontalAlignment(5, 1, HasHorizontalAlignment.ALIGN_RIGHT);
+		panel.getCellFormatter().setHorizontalAlignment(0, 0,
+				HasHorizontalAlignment.ALIGN_RIGHT);
+		panel.getCellFormatter().setHorizontalAlignment(1, 0,
+				HasHorizontalAlignment.ALIGN_RIGHT);
+		panel.getCellFormatter().setHorizontalAlignment(2, 0,
+				HasHorizontalAlignment.ALIGN_RIGHT);
+		panel.getCellFormatter().setHorizontalAlignment(3, 0,
+				HasHorizontalAlignment.ALIGN_RIGHT);
+		panel.getCellFormatter().setHorizontalAlignment(4, 0,
+				HasHorizontalAlignment.ALIGN_RIGHT);
+		panel.getCellFormatter().setHorizontalAlignment(5, 0,
+				HasHorizontalAlignment.ALIGN_CENTER);
+		panel.getCellFormatter().setHorizontalAlignment(5, 1,
+				HasHorizontalAlignment.ALIGN_RIGHT);
 
 		return panel;
 	}
@@ -396,8 +403,8 @@ public class SettingsView extends ViewImpl implements SettingsPresenter.IView {
 			public void onSubmit(SubmitEvent event) {
 				String filetype = upload.getFilename().toLowerCase();
 				filetype = filetype.substring(filetype.lastIndexOf(".") + 1);
-				if (!(filetype.equals("gif") || filetype.equals("jpg") || filetype.equals("jpeg") || filetype
-						.equals("png"))) {
+				if (!(filetype.equals("gif") || filetype.equals("jpg")
+						|| filetype.equals("jpeg") || filetype.equals("png"))) {
 					event.cancel();
 				}
 			}
@@ -453,7 +460,8 @@ public class SettingsView extends ViewImpl implements SettingsPresenter.IView {
 					image_.setAltText(image.getAltText());
 					media_ = media;
 					for (int i = 0; i < imageListView_.getWidgetCount(); i++) {
-						imageListView_.getWidget(i).removeStyleName(STYLE_IMAGE_LIST_SELECTED);
+						imageListView_.getWidget(i).removeStyleName(
+								STYLE_IMAGE_LIST_SELECTED);
 					}
 					image.addStyleName(STYLE_IMAGE_LIST_SELECTED);
 				}

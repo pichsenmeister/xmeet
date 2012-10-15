@@ -18,7 +18,8 @@ import com.gwtplatform.mvp.client.ViewImpl;
  * 
  * @author David Pichsenmeister
  */
-public class CreateWidget extends ViewImpl implements CreateWidgetPresenter.IView {
+public class CreateWidget extends ViewImpl implements
+		CreateWidgetPresenter.IView {
 
 	private CreateBox box_;
 
@@ -46,7 +47,7 @@ public class CreateWidget extends ViewImpl implements CreateWidgetPresenter.IVie
 
 	@Override
 	public void setCallbackNewLocation(ICallback callback) {
-		// TODO
+		box_.setCallbackNewLocation(callback);
 	}
 
 	@Override

@@ -32,25 +32,17 @@ public class ContactsWidgetPresenter extends PresenterWidget<ContactsWidgetPrese
 	 * @author David Pichsenmeister
 	 */
 	public interface IView extends View {
-		void setListenTo(List<XUser> user);
-
-		void setListener(List<XUser> user);
-
-		void setRequests(List<XUser> user);
-
 		void setCallbackUser(ITypedCallback<XUser> callback);
 
 		void setCallbackSelect(ITypedCallback<EnumWidget> callback);
 
-		void setCallbackRequest(ICallbackRequest callback);
+		void setCallbackAdd(ITypedCallback<XUser> callback);
 
-		void setWidget(EnumWidget value);
+		void setCallbackRemove(ITypedCallback<XUser> callback);
+
+		void setWidget(EnumWidget value, List<XUser> list);
 
 		void setRequestEnabled(boolean enable);
-	}
-
-	public interface ICallbackRequest {
-		void execute(XUser user, XContactStatus status);
 	}
 
 	private final RPCUserAsync rpcUser_;
@@ -100,14 +92,23 @@ public class ContactsWidgetPresenter extends PresenterWidget<ContactsWidgetPrese
 
 			@Override
 			public void execute(EnumWidget type) {
-				view_.setWidget(type);
+				setWidget(type);
 			}
 		});
 
-		view_.setCallbackRequest(new ICallbackRequest() {
+		view_.setCallbackAdd(new ITypedCallback<XUser>() {
+
 			@Override
-			public void execute(XUser user, XContactStatus status) {
-				saveUser(user, status);
+			public void execute(XUser user) {
+				verifyContact(user);
+			}
+		});
+
+		view_.setCallbackRemove(new ITypedCallback<XUser>() {
+
+			@Override
+			public void execute(XUser user) {
+				removeContact(user);
 			}
 		});
 	}
@@ -118,18 +119,10 @@ public class ContactsWidgetPresenter extends PresenterWidget<ContactsWidgetPrese
 
 		user_ = pGatekeeper_.get().getLoggedInUser();
 
-		if (listener_ == null) {
-			loadListener();
-		}
-		if (listenTo_ == null) {
-			loadListenTos();
-		}
-		if (request_ == null) {
-			loadRequests();
-		}
+		setWidget(EnumWidget.SUBSCRIBER);
 	}
 
-	private void loadListener() {
+	private void loadListener(final boolean showWidget) {
 		rpcUser_.loadListener(user_, XContactStatus.PERMIT, new AsyncCallback<List<XUser>>() {
 			@Override
 			public void onFailure(Throwable caught) {
@@ -139,12 +132,14 @@ public class ContactsWidgetPresenter extends PresenterWidget<ContactsWidgetPrese
 			@Override
 			public void onSuccess(List<XUser> result) {
 				listener_ = result;
-				view_.setListener(result);
+				if (showWidget) {
+					view_.setWidget(EnumWidget.SUBSCRIBER, listener_);
+				}
 			}
 		});
 	}
 
-	private void loadListenTos() {
+	private void loadListenTos(final boolean showWidget) {
 		rpcUser_.loadListenTos(user_, XContactStatus.PERMIT, new AsyncCallback<List<XUser>>() {
 			@Override
 			public void onFailure(Throwable caught) {
@@ -154,12 +149,14 @@ public class ContactsWidgetPresenter extends PresenterWidget<ContactsWidgetPrese
 			@Override
 			public void onSuccess(List<XUser> result) {
 				listenTo_ = result;
-				view_.setListenTo(result);
+				if (showWidget) {
+					view_.setWidget(EnumWidget.SUBSCRIBEDTO, listenTo_);
+				}
 			}
 		});
 	}
 
-	private void loadRequests() {
+	private void loadRequests(final boolean showWidget) {
 		rpcUser_.loadListener(user_, XContactStatus.REQUEST, new AsyncCallback<List<XUser>>() {
 			@Override
 			public void onFailure(Throwable caught) {
@@ -169,21 +166,15 @@ public class ContactsWidgetPresenter extends PresenterWidget<ContactsWidgetPrese
 			@Override
 			public void onSuccess(List<XUser> result) {
 				request_ = result;
-				view_.setRequests(result);
+				if (showWidget) {
+					view_.setWidget(EnumWidget.REQUEST, request_);
+				}
 			}
 		});
 	}
 
-	/**
-	 * saves user request status
-	 * 
-	 * @param listener
-	 *            the user who requested
-	 * @param status
-	 *            the XContactStatus
-	 */
-	private void saveUser(XUser listener, XContactStatus status) {
-		rpcUser_.verifyContactRequest(listener, user_, status, new AsyncCallback<XUser>() {
+	private void verifyContact(XUser listener) {
+		rpcUser_.verifyContactRequest(listener, user_, new AsyncCallback<XUser>() {
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert("fail");
@@ -191,12 +182,55 @@ public class ContactsWidgetPresenter extends PresenterWidget<ContactsWidgetPrese
 
 			@Override
 			public void onSuccess(XUser result) {
-				loadListenTos();
-				loadRequests();
+				// loadListenTos(false);
+				// loadRequests(false);
+				Window.alert("success");
 			}
 		});
 	}
 
+	private void removeContact(XUser listener) {
+		rpcUser_.removeContact(listener, user_, new AsyncCallback<XUser>() {
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert("fail");
+			}
+
+			@Override
+			public void onSuccess(XUser result) {
+				Window.alert("success");
+				// loadListener(false);
+				// loadListenTos(false);
+				// loadRequests(false);
+			}
+		});
+	}
+
+	private void setWidget(EnumWidget widget) {
+		switch (widget) {
+		case SUBSCRIBER:
+			if (listener_ == null) {
+				loadListener(true);
+			} else {
+				view_.setWidget(widget, listener_);
+			}
+			break;
+		case SUBSCRIBEDTO:
+			if (listenTo_ == null) {
+				loadListenTos(true);
+			} else {
+				view_.setWidget(widget, listenTo_);
+			}
+			break;
+		case REQUEST:
+			if (request_ == null) {
+				loadRequests(true);
+			} else {
+				view_.setWidget(widget, request_);
+			}
+			break;
+		}
+	}
 	// /**
 	// * set user whos contacts are loaded
 	// *

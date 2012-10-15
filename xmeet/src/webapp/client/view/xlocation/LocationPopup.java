@@ -36,13 +36,14 @@ import com.gwtplatform.mvp.client.PopupViewImpl;
  * 
  * @author David Pichsenmeister
  */
-public class LocationPopup extends PopupViewImpl implements LocationPopupPresenter.IView {
+public class LocationPopup extends PopupViewImpl implements
+		LocationPopupPresenter.IView {
 
 	public static final String NAME = "name";
-	public static final String ADDRESS = "adresse";
-	public static final String SEARCH = "suchen";
-	public static final String SAVE = "speichern";
-	public static final String GEOCODE = "die adresse konnte nicht geokodiert werden...";
+	public static final String ADDRESS = "address";
+	public static final String SEARCH = "search";
+	public static final String SAVE = "save";
+	public static final String GEOCODE = "the address could not be geocoded...";
 
 	private static final String STYLE_POPUP = "qr-popup";
 	private static final int ZOOMLEVEL = 18;
@@ -69,7 +70,7 @@ public class LocationPopup extends PopupViewImpl implements LocationPopupPresent
 
 		final FlowPanel panel = new FlowPanel();
 		panel.setStyleName(STYLE_POPUP);
-		panel.setSize("700px", "450px");
+		panel.setSize("700px", "500px");
 		widget.setWidget(panel);
 
 		Label name = new Label(NAME);

@@ -31,6 +31,11 @@
 				<g:Image width="48px" height="48px" ui:field="next" altText="next" url="xmeet/next.png" addStyleNames="{style.skip}"/>
 			</g:layer>
 		</g:LayoutPanel>
+		<g:LayoutPanel width="100%" height="35px">
+			<g:layer right="0px" width="90px" top="0px" bottom="0px">
+				<p1:XButton ui:field="newloc" />
+			</g:layer>
+		</g:LayoutPanel>
 		<g:LayoutPanel width="100%" height="25px">
 			<g:layer left="0px" width="50px" top="0px" bottom="0px">
 				<g:Label ui:field="location"/>

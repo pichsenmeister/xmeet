@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/xmeet/!svn/ver/24/xmeet/src/webapp/client/event
+END
+RevealPlaceEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/xmeet/!svn/ver/19/xmeet/src/webapp/client/event/RevealPlaceEvent.java
+END
+XNameToken.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/event/XNameToken.java
+END
+IRevealPlaceEventHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/xmeet/!svn/ver/3/xmeet/src/webapp/client/event/IRevealPlaceEventHandler.java
+END

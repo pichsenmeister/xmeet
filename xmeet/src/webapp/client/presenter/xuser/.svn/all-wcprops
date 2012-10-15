@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/xmeet/!svn/ver/28/xmeet/src/webapp/client/presenter/xuser
+END
+RegisterWidgetPresenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/xmeet/!svn/ver/32/xmeet/src/webapp/client/presenter/xuser/RegisterWidgetPresenter.java
+END
+UserPagePresenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/presenter/xuser/UserPagePresenter.java
+END
+LoggedInGatekeeper.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/xmeet/!svn/ver/32/xmeet/src/webapp/client/presenter/xuser/LoggedInGatekeeper.java
+END
+ContactsPresenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/presenter/xuser/ContactsPresenter.java
+END
+ContactsPresenterWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/xmeet/!svn/ver/32/xmeet/src/webapp/client/presenter/xuser/ContactsPresenterWidget.java
+END
+ContactsWidgetPresenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/presenter/xuser/ContactsWidgetPresenter.java
+END
+UserControlPanelWidgetPresenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/xmeet/!svn/ver/33/xmeet/src/webapp/client/presenter/xuser/UserControlPanelWidgetPresenter.java
+END
+ControlPanelPresenterWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/xmeet/!svn/ver/32/xmeet/src/webapp/client/presenter/xuser/ControlPanelPresenterWidget.java
+END

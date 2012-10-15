@@ -4,7 +4,6 @@ import java.util.List;
 
 import webapp.client.callback.ITypedCallback;
 import webapp.client.presenter.xuser.ContactsWidgetPresenter;
-import webapp.client.presenter.xuser.ContactsWidgetPresenter.ICallbackRequest;
 import webapp.client.view.customwidget.ListView;
 import webapp.client.view.customwidget.ListView.IGenerator;
 import webapp.client.view.xuser.contacts.ContactsTabPanel;
@@ -21,14 +20,15 @@ import com.gwtplatform.mvp.client.ViewImpl;
  * 
  * @author David Pichsenmeister
  */
-public class ContactsWidget extends ViewImpl implements ContactsWidgetPresenter.IView {
+public class ContactsWidget extends ViewImpl implements
+		ContactsWidgetPresenter.IView {
 
-	public static final String LISTENER = "lauscher";
-	public static final String LISTENTO = "du lauschst";
-	public static final String REQUESTS = "anfragen";
-	public static final String LISTENTO_DEFAULT = "du lauschst noch niemanden";
-	public static final String LISTENER_DEFAULT = "niemand lauscht dir";
-	public static final String REQUEST_DEFAULT = "keine anfragen vorhanden";
+	public static final String LISTENER = "subscriber";
+	public static final String LISTENTO = "subscribed to";
+	public static final String REQUESTS = "requests";
+	public static final String LISTENTO_DEFAULT = "not subscribed to anybody";
+	public static final String LISTENER_DEFAULT = "no subscribers";
+	public static final String REQUEST_DEFAULT = "no new requests";
 
 	private static final String STYLE_TEXT = "text-no-contacts";
 
@@ -37,7 +37,8 @@ public class ContactsWidget extends ViewImpl implements ContactsWidgetPresenter.
 	private ListView<XUser> listener_;
 	private ListView<XUser> requests_;
 	private ITypedCallback<XUser> callbackUser_;
-	private ICallbackRequest callbackRequest_;
+	private ITypedCallback<XUser> callbackAdd_;
+	private ITypedCallback<XUser> callbackRemove_;
 	private Label requestLabel_;
 
 	/**
@@ -53,7 +54,12 @@ public class ContactsWidget extends ViewImpl implements ContactsWidgetPresenter.
 			public Widget generateWidget(XUser model) {
 				UserContactWidget widget = new UserContactWidget();
 				widget.setCallbackUser(callbackUser_);
+				widget.setCallbackAdd(callbackAdd_);
+				widget.setCallbackRemove(callbackRemove_);
 				widget.setUser(model);
+				widget.enablePlus(false);
+				widget.enableMinus(true);
+				widget.enableRequest(false);
 				return widget;
 			}
 		});
@@ -65,7 +71,12 @@ public class ContactsWidget extends ViewImpl implements ContactsWidgetPresenter.
 			public Widget generateWidget(XUser model) {
 				UserContactWidget widget = new UserContactWidget();
 				widget.setCallbackUser(callbackUser_);
+				widget.setCallbackAdd(callbackAdd_);
+				widget.setCallbackRemove(callbackRemove_);
 				widget.setUser(model);
+				widget.enablePlus(false);
+				widget.enableMinus(true);
+				widget.enableRequest(false);
 				return widget;
 			}
 		});
@@ -77,8 +88,12 @@ public class ContactsWidget extends ViewImpl implements ContactsWidgetPresenter.
 			public Widget generateWidget(XUser model) {
 				UserContactWidget widget = new UserContactWidget();
 				widget.setCallbackUser(callbackUser_);
+				widget.setCallbackAdd(callbackAdd_);
+				widget.setCallbackRemove(callbackRemove_);
 				widget.setUser(model);
-				widget.setRequest(true);
+				widget.enablePlus(true);
+				widget.enableMinus(true);
+				widget.enableRequest(false);
 				return widget;
 			}
 		});
@@ -95,28 +110,8 @@ public class ContactsWidget extends ViewImpl implements ContactsWidgetPresenter.
 	}
 
 	@Override
-	public void setListenTo(List<XUser> users) {
-		listenTo_.setStore(users);
-	}
-
-	@Override
-	public void setListener(List<XUser> users) {
-		listener_.setStore(users);
-	}
-
-	@Override
-	public void setRequests(List<XUser> users) {
-		requests_.setStore(users);
-	}
-
-	@Override
 	public void setRequestEnabled(boolean enable) {
 		requestLabel_.setVisible(enable);
-	}
-
-	@Override
-	public void setCallbackRequest(ICallbackRequest callback) {
-		callbackRequest_ = callback;
 	}
 
 	@Override
@@ -125,17 +120,32 @@ public class ContactsWidget extends ViewImpl implements ContactsWidgetPresenter.
 	}
 
 	@Override
-	public void setWidget(EnumWidget value) {
+	public void setWidget(EnumWidget value, List<XUser> list) {
+		mainPanel_.setActiveTab(value);
+
 		switch (value) {
-		case LISTENER:
+		case SUBSCRIBER:
+			listener_.setStore(list);
 			mainPanel_.setContent(listener_);
 			break;
-		case LISTENTO:
+		case SUBSCRIBEDTO:
+			listenTo_.setStore(list);
 			mainPanel_.setContent(listenTo_);
 			break;
 		case REQUEST:
+			requests_.setStore(list);
 			mainPanel_.setContent(requests_);
 			break;
 		}
+	}
+
+	@Override
+	public void setCallbackAdd(ITypedCallback<XUser> callback) {
+		callbackAdd_ = callback;
+	}
+
+	@Override
+	public void setCallbackRemove(ITypedCallback<XUser> callback) {
+		callbackRemove_ = callback;
 	}
 }

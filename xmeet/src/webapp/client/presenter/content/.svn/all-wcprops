@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/xmeet/!svn/ver/26/xmeet/src/webapp/client/presenter/content
+END
+ContentPresenter.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/xmeet/!svn/ver/26/xmeet/src/webapp/client/presenter/content/ContentPresenter.java
+END
+ContentPresenterWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/xmeet/!svn/ver/24/xmeet/src/webapp/client/presenter/content/ContentPresenterWidget.java
+END
+FooterPresenterWidget.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/xmeet/!svn/ver/24/xmeet/src/webapp/client/presenter/content/FooterPresenterWidget.java
+END

@@ -27,7 +27,7 @@ public interface RPCUser extends RemoteService {
 
 	public XUser addContact(XUser listener, XUser listenTo);
 
-	public XUser verifyContactRequest(XUser listener, XUser listenTo, XContactStatus status);
+	public XUser verifyContactRequest(XUser listener, XUser listenTo);
 
 	public XUser removeContact(XUser listener, XUser listenTo);
 
