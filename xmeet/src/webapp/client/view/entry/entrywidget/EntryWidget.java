@@ -32,6 +32,8 @@ public class EntryWidget extends Composite {
 	FlowPanel userLink;
 	@UiField
 	Label name;
+	@UiField
+	Label time;
 
 	XLocationEntry entry_;
 
@@ -55,15 +57,9 @@ public class EntryWidget extends Composite {
 
 		description.getElement().setInnerHTML(entry.getText());
 
-		// Runnable onLoadCallback = new Runnable() {
-		// @Override
-		// public void run() {
-		// ICalender ical = new ICalender(event_);
-		// qr.setWidget(ical.getPanel());
-		// }
-		// };
-		// VisualizationUtils.loadVisualizationApi(onLoadCallback,
-		// ImageChart.PACKAGE);
+		Long curr = System.currentTimeMillis() - entry.getCreated();
+		curr = (curr / 1000) / 3600;
+		time.setText(curr.toString() + "h");
 	}
 
 	public void setCallbackUser(ITypedCallback<XUser> callback) {

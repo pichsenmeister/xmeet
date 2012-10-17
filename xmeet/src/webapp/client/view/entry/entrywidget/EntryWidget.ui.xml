@@ -46,7 +46,7 @@
 		<g:FlowPanel ui:field="userLink" styleName="{style.textPanel}">
 				<g:Label ui:field="name" styleName="{style.user}"/>
 				<g:Label ui:field="description" styleName="{style.description}"/>
-				<g:Label ui:field="time" styleName="{style.time}" text="1h"/>
+				<g:Label ui:field="time" styleName="{style.time}" />
 		</g:FlowPanel>
 	</g:FlowPanel>
 </ui:UiBinder> 
