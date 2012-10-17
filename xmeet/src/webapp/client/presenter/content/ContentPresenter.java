@@ -29,20 +29,21 @@ import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 
 /**
  * the presenter for content
- *
+ * 
  * @author David Pichsenmeister
  */
-public class ContentPresenter extends Presenter<ContentPresenter.IView, ContentPresenter.IProxy> {
+public class ContentPresenter extends
+		Presenter<ContentPresenter.IView, ContentPresenter.IProxy> {
 
 	/**
 	 * the interface for the content view
-	 *
+	 * 
 	 * @author David Pichsenmeister
 	 */
-	public interface IView extends View {		
+	public interface IView extends View {
 		void isUserLogged(boolean logged);
 	}
-	
+
 	public interface ICallbackListen {
 		void execute(HasText button, HasText msg);
 	}
@@ -75,26 +76,27 @@ public class ContentPresenter extends Presenter<ContentPresenter.IView, ContentP
 
 	/**
 	 * the constructor
-	 *
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * 
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
 	 *            the view
 	 * @param proxy
 	 *            the proxy
+	 * @param userControlPresenter
+	 *            the UserControlPanelWidgetPresenter
 	 * @param controlPresenter
-	 *            the UserControlPresenterWidget
-	 * @param eventsPresenter
-	 *            the MyEventsPresenterWidget
-	 * @param contactsPresenter
-	 *            the ContactsPresenterWidget
-	 * @param eventCreatorPresenter
-	 *            the EventCreatorPresenterWidget
+	 *            the ControlPanelPresenterWidget
+	 * @param contentPresenter
+	 *            the ContentPresenterWidget
+	 * @param footerPresenter
+	 *            the FooterPresenterWidget
 	 */
 	@Inject
-	public ContentPresenter(EventBus eventBus, IView view, IProxy proxy,
+	public ContentPresenter(
+			EventBus eventBus,
+			IView view,
+			IProxy proxy,
 			AsyncProvider<UserControlPanelWidgetPresenter> userControlPresenter,
 			AsyncProvider<ControlPanelPresenterWidget> controlPresenter,
 			AsyncProvider<ContentPresenterWidget> contentPresenter,
@@ -103,10 +105,14 @@ public class ContentPresenter extends Presenter<ContentPresenter.IView, ContentP
 
 		view_ = view;
 
-		userControlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(userControlPresenter);
-		controlPresenter_ = new CodeSplitProvider<ControlPanelPresenterWidget>(controlPresenter);
-		contentPresenter_ = new CodeSplitProvider<ContentPresenterWidget>(contentPresenter);
-		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(footerPresenter);
+		userControlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(
+				userControlPresenter);
+		controlPresenter_ = new CodeSplitProvider<ControlPanelPresenterWidget>(
+				controlPresenter);
+		contentPresenter_ = new CodeSplitProvider<ContentPresenterWidget>(
+				contentPresenter);
+		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(
+				footerPresenter);
 	}
 
 	@Override
@@ -116,8 +122,8 @@ public class ContentPresenter extends Presenter<ContentPresenter.IView, ContentP
 
 	@Override
 	protected void onReveal() {
-		super.onReveal();	
-		
+		super.onReveal();
+
 		loggedUser_ = pGatekeeper_.get().getLoggedInUser();
 
 		footerPresenter_.get(new AsyncCallback<FooterPresenterWidget>() {
@@ -132,30 +138,33 @@ public class ContentPresenter extends Presenter<ContentPresenter.IView, ContentP
 			}
 		});
 
-		if(loggedUser_ != null) {			
-			userControlPresenter_.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
-				@Override
-				public void onFailure(Throwable caught) {
-					Window.alert(caught.toString());
-				}
-	
-				@Override
-				public void onSuccess(UserControlPanelWidgetPresenter result) {
-					setInSlot(TYPE_CONTENT_CONTROL, result);
-				}
-			});
+		if (loggedUser_ != null) {
+			userControlPresenter_
+					.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
+						@Override
+						public void onFailure(Throwable caught) {
+							Window.alert(caught.toString());
+						}
+
+						@Override
+						public void onSuccess(
+								UserControlPanelWidgetPresenter result) {
+							setInSlot(TYPE_CONTENT_CONTROL, result);
+						}
+					});
 		} else {
-			controlPresenter_.get(new AsyncCallback<ControlPanelPresenterWidget>() {
-				@Override
-				public void onFailure(Throwable caught) {
-					Window.alert(caught.toString());
-				}
-	
-				@Override
-				public void onSuccess(ControlPanelPresenterWidget result) {
-					setInSlot(TYPE_CONTENT_CONTROL, result);
-				}
-			});
+			controlPresenter_
+					.get(new AsyncCallback<ControlPanelPresenterWidget>() {
+						@Override
+						public void onFailure(Throwable caught) {
+							Window.alert(caught.toString());
+						}
+
+						@Override
+						public void onSuccess(ControlPanelPresenterWidget result) {
+							setInSlot(TYPE_CONTENT_CONTROL, result);
+						}
+					});
 		}
 	}
 
@@ -163,18 +172,18 @@ public class ContentPresenter extends Presenter<ContentPresenter.IView, ContentP
 	protected void revealInParent() {
 		RevealRootContentEvent.fire(this, this);
 	}
-	
+
 	@Override
 	public boolean useManualReveal() {
 		return true;
 	}
-	
+
 	@Override
 	public void prepareFromRequest(PlaceRequest request) {
 		super.prepareFromRequest(request);
-		
+
 		content_ = request.getParameter("about", "error");
-		
+
 		contentPresenter_.get(new AsyncCallback<ContentPresenterWidget>() {
 			@Override
 			public void onFailure(Throwable caught) {
@@ -187,14 +196,14 @@ public class ContentPresenter extends Presenter<ContentPresenter.IView, ContentP
 				setInSlot(TYPE_CONTENT_MAIN, result);
 			}
 		});
-		
+
 		loggedUser_ = pGatekeeper_.get().getLoggedInUser();
-		
-		if(loggedUser_ != null) {
-				view_.isUserLogged(true);
-			} else {
-				view_.isUserLogged(false);
-			}
+
+		if (loggedUser_ != null) {
+			view_.isUserLogged(true);
+		} else {
+			view_.isUserLogged(false);
+		}
 		getProxy().manualReveal(this);
 	}
 }

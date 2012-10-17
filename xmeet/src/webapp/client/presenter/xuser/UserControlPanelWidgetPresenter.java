@@ -25,7 +25,8 @@ import com.gwtplatform.mvp.client.View;
  * 
  * @author David Pichsenmeister
  */
-public class UserControlPanelWidgetPresenter extends PresenterWidget<UserControlPanelWidgetPresenter.IView> {
+public class UserControlPanelWidgetPresenter extends
+		PresenterWidget<UserControlPanelWidgetPresenter.IView> {
 
 	/**
 	 * the interface for the user's control panel view
@@ -65,15 +66,20 @@ public class UserControlPanelWidgetPresenter extends PresenterWidget<UserControl
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * @param rpcMedia
+	 *            rpc service for database connection
+	 * @param rpcUser
+	 *            rpc service for database connection
+	 * @param gatekeeper
+	 *            the gatekeeper for logged user
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
 	 *            the view
 	 */
 	@Inject
-	public UserControlPanelWidgetPresenter(RPCMediaAsync rpcMedia, RPCUserAsync rpcUser, EventBus eventBus, IView view,
+	public UserControlPanelWidgetPresenter(RPCMediaAsync rpcMedia,
+			RPCUserAsync rpcUser, EventBus eventBus, IView view,
 			LoggedInGatekeeper gatekeeper) {
 		super(eventBus, view);
 
@@ -92,15 +98,16 @@ public class UserControlPanelWidgetPresenter extends PresenterWidget<UserControl
 
 		view_.setUser(user_);
 
-		registerHandler(eventBus_.addHandler(XUserLoginEvent.TYPE, new IXUserLoginEventHandler() {
+		registerHandler(eventBus_.addHandler(XUserLoginEvent.TYPE,
+				new IXUserLoginEventHandler() {
 
-			@Override
-			public void onXUserLogin(XUserLoginEvent event) {
-				parent_ = pGatekeeper_.get().getLoggedInUser();
-				user_ = parent_;
-				view_.setUser(user_);
-			}
-		}));
+					@Override
+					public void onXUserLogin(XUserLoginEvent event) {
+						parent_ = pGatekeeper_.get().getLoggedInUser();
+						user_ = parent_;
+						view_.setUser(user_);
+					}
+				}));
 
 		view_.setCallbackNews(new ICallback() {
 			@Override
@@ -130,7 +137,8 @@ public class UserControlPanelWidgetPresenter extends PresenterWidget<UserControl
 				if ((search != null) && !search.isEmpty()) {
 					HashMap<String, String> params = new HashMap<String, String>();
 					params.put("q", search);
-					eventBus_.fireEvent(new RevealPlaceEvent(XNameToken.SEARCH, params));
+					eventBus_.fireEvent(new RevealPlaceEvent(XNameToken.SEARCH,
+							params));
 				}
 			}
 		});
@@ -140,7 +148,8 @@ public class UserControlPanelWidgetPresenter extends PresenterWidget<UserControl
 			public void execute() {
 				HashMap<String, String> params = new HashMap<String, String>();
 				params.put("id", user_.getUserID().toString());
-				eventBus_.fireEvent(new RevealPlaceEvent(XNameToken.USER, params));
+				eventBus_.fireEvent(new RevealPlaceEvent(XNameToken.USER,
+						params));
 			}
 		});
 

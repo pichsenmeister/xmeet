@@ -11,14 +11,15 @@ import com.gwtplatform.mvp.client.View;
 
 /**
  * the presenter for html content
- *
+ * 
  * @author David Pichsenmeister
  */
-public class ContentPresenterWidget extends PresenterWidget<ContentPresenterWidget.IView> {
+public class ContentPresenterWidget extends
+		PresenterWidget<ContentPresenterWidget.IView> {
 
 	/**
 	 * the interface for the html content view
-	 *
+	 * 
 	 * @author David Pichsenmeister
 	 */
 	public interface IView extends View {
@@ -31,18 +32,19 @@ public class ContentPresenterWidget extends PresenterWidget<ContentPresenterWidg
 
 	/**
 	 * the constructor
-	 *
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * 
+	 * @param rpcContent
+	 *            rpc service for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
 	 *            the view
 	 */
 	@Inject
-	public ContentPresenterWidget(RPCContentAsync rpcContent, EventBus eventBus, IView view) {
+	public ContentPresenterWidget(RPCContentAsync rpcContent,
+			EventBus eventBus, IView view) {
 		super(eventBus, view);
-		
+
 		rpcContent_ = rpcContent;
 		view_ = view;
 	}
@@ -62,9 +64,10 @@ public class ContentPresenterWidget extends PresenterWidget<ContentPresenterWidg
 				// TODO error handling
 
 			}
+
 			@Override
 			public void onSuccess(XContent result) {
-				if(result != null) {
+				if (result != null) {
 					view_.setHtmlContent(result.getContent());
 				}
 			}
@@ -75,7 +78,7 @@ public class ContentPresenterWidget extends PresenterWidget<ContentPresenterWidg
 	 * sets the <code>XContentName</code> which will be load from database
 	 * 
 	 * @param name
-	 *			the XContentName
+	 *            the XContentName
 	 */
 	public void setContentName(String name) {
 		content_ = name;

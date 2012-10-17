@@ -94,8 +94,8 @@ public class SearchResultPresenter extends
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * @param rpcUser
+	 *            rpc service for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
@@ -103,19 +103,24 @@ public class SearchResultPresenter extends
 	 * @param proxy
 	 *            the proxy to the presenter
 	 * @param controlPresenter
-	 *            the UserControlPresenterWidget
+	 *            the UserControlPanelWidgetPresenter
+	 * @param footerPresenter
+	 *            the FooterPresenterWidget
 	 */
 	@Inject
-	public SearchResultPresenter(RPCUserAsync rpcUser, EventBus eventBus, IView view,
-			IProxy proxy, AsyncProvider<UserControlPanelWidgetPresenter> controlPresenter,
+	public SearchResultPresenter(RPCUserAsync rpcUser, EventBus eventBus,
+			IView view, IProxy proxy,
+			AsyncProvider<UserControlPanelWidgetPresenter> controlPresenter,
 			AsyncProvider<FooterPresenterWidget> footerPresenter) {
 		super(eventBus, view, proxy);
 
 		rpcUser_ = rpcUser;
 		view_ = view;
 
-		controlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(controlPresenter);
-		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(footerPresenter);
+		controlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(
+				controlPresenter);
+		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(
+				footerPresenter);
 	}
 
 	@Override
@@ -134,18 +139,19 @@ public class SearchResultPresenter extends
 	protected void onReveal() {
 		super.onReveal();
 
-		controlPresenter_.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO error handling
-				Window.alert(caught.toString());
-			}
+		controlPresenter_
+				.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						// TODO error handling
+						Window.alert(caught.toString());
+					}
 
-			@Override
-			public void onSuccess(UserControlPanelWidgetPresenter result) {
-				setInSlot(TYPE_CONTENT_CONTROL, result);
-			}
-		});
+					@Override
+					public void onSuccess(UserControlPanelWidgetPresenter result) {
+						setInSlot(TYPE_CONTENT_CONTROL, result);
+					}
+				});
 
 		footerPresenter_.get(new AsyncCallback<FooterPresenterWidget>() {
 			@Override
@@ -185,18 +191,19 @@ public class SearchResultPresenter extends
 	 *            the search string
 	 */
 	private void doSearch(final String search) {
-		rpcUser_.loadListenTos(user_, XContactStatus.PERMIT, new AsyncCallback<List<XUser>>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO error handling
-			}
+		rpcUser_.loadListenTos(user_, XContactStatus.PERMIT,
+				new AsyncCallback<List<XUser>>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						// TODO error handling
+					}
 
-			@Override
-			public void onSuccess(List<XUser> result) {
-				// user_ = result;
-				searchUsers(search);
-			}
-		});
+					@Override
+					public void onSuccess(List<XUser> result) {
+						// user_ = result;
+						searchUsers(search);
+					}
+				});
 	}
 
 	/**
@@ -206,18 +213,19 @@ public class SearchResultPresenter extends
 	 *            the search string
 	 */
 	private void searchUsers(String search) {
-		rpcUser_.searchXUser(search, startUser_, MAX_RESULT, new AsyncCallback<List<XUser>>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO error handling
-				Window.alert("cannot find users");
-			}
+		rpcUser_.searchXUser(search, startUser_, MAX_RESULT,
+				new AsyncCallback<List<XUser>>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						// TODO error handling
+						Window.alert("cannot find users");
+					}
 
-			@Override
-			public void onSuccess(List<XUser> result) {
-				view_.setXUserList(result, user_);
-			}
-		});
+					@Override
+					public void onSuccess(List<XUser> result) {
+						view_.setXUserList(result, user_);
+					}
+				});
 	}
 
 	/**

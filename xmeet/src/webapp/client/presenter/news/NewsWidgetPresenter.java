@@ -66,8 +66,8 @@ public class NewsWidgetPresenter extends
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * @param rpcLocation
+	 *            rpc service for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view

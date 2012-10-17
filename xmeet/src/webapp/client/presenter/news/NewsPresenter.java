@@ -30,7 +30,8 @@ import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
  * 
  * @author David Pichsenmeister
  */
-public class NewsPresenter extends Presenter<NewsPresenter.IView, NewsPresenter.IProxy> {
+public class NewsPresenter extends
+		Presenter<NewsPresenter.IView, NewsPresenter.IProxy> {
 
 	/**
 	 * the interface for the news view
@@ -65,8 +66,6 @@ public class NewsPresenter extends Presenter<NewsPresenter.IView, NewsPresenter.
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
@@ -74,13 +73,11 @@ public class NewsPresenter extends Presenter<NewsPresenter.IView, NewsPresenter.
 	 * @param proxy
 	 *            the proxy
 	 * @param controlPresenter
-	 *            the UserControlWidgetPresenter
+	 *            the UserControlPanelWidgetPresenter
 	 * @param newsPresenter
-	 *            the NewsPresenterWidget
-	 * @param creatorPresenter
-	 *            the CreatorWidgetPresenter
+	 *            NewsWidgetPresenter
 	 * @param footerPresenter
-	 *            the FooterWidgetPresenter
+	 *            the FooterPresenterWidget
 	 */
 	@Inject
 	public NewsPresenter(EventBus eventBus, IView view, IProxy proxy,
@@ -89,9 +86,12 @@ public class NewsPresenter extends Presenter<NewsPresenter.IView, NewsPresenter.
 			AsyncProvider<FooterPresenterWidget> footerPresenter) {
 		super(eventBus, view, proxy);
 
-		controlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(controlPresenter);
-		newsPresenter_ = new CodeSplitProvider<NewsWidgetPresenter>(newsPresenter);
-		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(footerPresenter);
+		controlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(
+				controlPresenter);
+		newsPresenter_ = new CodeSplitProvider<NewsWidgetPresenter>(
+				newsPresenter);
+		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(
+				footerPresenter);
 	}
 
 	@Override
@@ -103,18 +103,19 @@ public class NewsPresenter extends Presenter<NewsPresenter.IView, NewsPresenter.
 	protected void onReveal() {
 		super.onReveal();
 
-		controlPresenter_.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert(caught.toString());
-			}
+		controlPresenter_
+				.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert(caught.toString());
+					}
 
-			@Override
-			public void onSuccess(UserControlPanelWidgetPresenter result) {
-				setInSlot(TYPE_CONTENT_CONTROL, result);
-				result.setActiveIcon(MenuIcon.NEWS);
-			}
-		});
+					@Override
+					public void onSuccess(UserControlPanelWidgetPresenter result) {
+						setInSlot(TYPE_CONTENT_CONTROL, result);
+						result.setActiveIcon(MenuIcon.NEWS);
+					}
+				});
 
 		newsPresenter_.get(new AsyncCallback<NewsWidgetPresenter>() {
 			@Override

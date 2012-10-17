@@ -36,7 +36,8 @@ import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
  * 
  * @author David Pichsenmeister
  */
-public class UserPagePresenter extends Presenter<UserPagePresenter.IView, UserPagePresenter.IProxy> {
+public class UserPagePresenter extends
+		Presenter<UserPagePresenter.IView, UserPagePresenter.IProxy> {
 
 	/**
 	 * the interface for the userpage view
@@ -91,8 +92,8 @@ public class UserPagePresenter extends Presenter<UserPagePresenter.IView, UserPa
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * @param rpcUser
+	 *            rpc service for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
@@ -100,16 +101,20 @@ public class UserPagePresenter extends Presenter<UserPagePresenter.IView, UserPa
 	 * @param proxy
 	 *            the proxy
 	 * @param controlPresenter
-	 *            the UserControlPresenterWidget
-	 * @param eventsPresenter
-	 *            the MyEventsPresenterWidget
-	 * @param contactsPresenter
-	 *            the ContactsPresenterWidget
-	 * @param eventCreatorPresenter
-	 *            the EventCreatorPresenterWidget
+	 *            the ControlPanelPresenterWidget
+	 * @param userControlPresenter
+	 *            the UserControlPanelWidgetPresenter
+	 * @param locationPresenter
+	 *            the UsersEventsWidgetPresenter
+	 * @param footerPresenter
+	 *            the FooterPresenterWidget
 	 */
 	@Inject
-	public UserPagePresenter(RPCUserAsync rpcUser, EventBus eventBus, IView view, IProxy proxy,
+	public UserPagePresenter(
+			RPCUserAsync rpcUser,
+			EventBus eventBus,
+			IView view,
+			IProxy proxy,
 			AsyncProvider<UserControlPanelWidgetPresenter> userControlPresenter,
 			AsyncProvider<ControlPanelPresenterWidget> controlPresenter,
 			AsyncProvider<UsersEventsWidgetPresenter> locationPresenter,
@@ -121,9 +126,12 @@ public class UserPagePresenter extends Presenter<UserPagePresenter.IView, UserPa
 
 		userControlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(
 				userControlPresenter);
-		controlPresenter_ = new CodeSplitProvider<ControlPanelPresenterWidget>(controlPresenter);
-		locationPresenter_ = new CodeSplitProvider<UsersEventsWidgetPresenter>(locationPresenter);
-		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(footerPresenter);
+		controlPresenter_ = new CodeSplitProvider<ControlPanelPresenterWidget>(
+				controlPresenter);
+		locationPresenter_ = new CodeSplitProvider<UsersEventsWidgetPresenter>(
+				locationPresenter);
+		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(
+				footerPresenter);
 	}
 
 	@Override
@@ -184,29 +192,32 @@ public class UserPagePresenter extends Presenter<UserPagePresenter.IView, UserPa
 				loadRequestTo();
 			}
 
-			userControlPresenter_.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
-				@Override
-				public void onFailure(Throwable caught) {
-					Window.alert(caught.toString());
-				}
+			userControlPresenter_
+					.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
+						@Override
+						public void onFailure(Throwable caught) {
+							Window.alert(caught.toString());
+						}
 
-				@Override
-				public void onSuccess(UserControlPanelWidgetPresenter result) {
-					setInSlot(TYPE_CONTENT_CONTROL, result);
-				}
-			});
+						@Override
+						public void onSuccess(
+								UserControlPanelWidgetPresenter result) {
+							setInSlot(TYPE_CONTENT_CONTROL, result);
+						}
+					});
 		} else {
-			controlPresenter_.get(new AsyncCallback<ControlPanelPresenterWidget>() {
-				@Override
-				public void onFailure(Throwable caught) {
-					Window.alert(caught.toString());
-				}
+			controlPresenter_
+					.get(new AsyncCallback<ControlPanelPresenterWidget>() {
+						@Override
+						public void onFailure(Throwable caught) {
+							Window.alert(caught.toString());
+						}
 
-				@Override
-				public void onSuccess(ControlPanelPresenterWidget result) {
-					setInSlot(TYPE_CONTENT_CONTROL, result);
-				}
-			});
+						@Override
+						public void onSuccess(ControlPanelPresenterWidget result) {
+							setInSlot(TYPE_CONTENT_CONTROL, result);
+						}
+					});
 		}
 	}
 
@@ -240,12 +251,14 @@ public class UserPagePresenter extends Presenter<UserPagePresenter.IView, UserPa
 				&& (id.equals(loggedUser_.getUserID().toString()) || id
 						.equals(loggedUser_.getUserID().toString()))) {
 			user_ = loggedUser_;
-			if ((oldUser != null) && !user_.getUserID().equals(oldUser.getUserID())) {
+			if ((oldUser != null)
+					&& !user_.getUserID().equals(oldUser.getUserID())) {
 				setUpUserPage(user_);
 				collectPresenterWidgets();
 			}
 			getProxy().manualReveal(getPresenter());
-		} else if ((oldUser != null) && !oldUser.getUserID().toString().equals(id)) {
+		} else if ((oldUser != null)
+				&& !oldUser.getUserID().toString().equals(id)) {
 			rpcUser_.loadXUserByID(new Long(id), new AsyncCallback<XUser>() {
 				@Override
 				public void onFailure(Throwable caught) {

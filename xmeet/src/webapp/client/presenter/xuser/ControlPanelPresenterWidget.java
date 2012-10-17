@@ -18,7 +18,8 @@ import com.gwtplatform.mvp.client.View;
  * 
  * @author David Pichsenmeister
  */
-public class ControlPanelPresenterWidget extends PresenterWidget<ControlPanelPresenterWidget.IView> {
+public class ControlPanelPresenterWidget extends
+		PresenterWidget<ControlPanelPresenterWidget.IView> {
 
 	/**
 	 * the interface for the user's control panel view
@@ -42,15 +43,16 @@ public class ControlPanelPresenterWidget extends PresenterWidget<ControlPanelPre
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * @param rpcUser
+	 *            rpc service for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
 	 *            the view
 	 */
 	@Inject
-	public ControlPanelPresenterWidget(RPCUserAsync rpcUser, EventBus eventBus, IView view) {
+	public ControlPanelPresenterWidget(RPCUserAsync rpcUser, EventBus eventBus,
+			IView view) {
 		super(eventBus, view);
 
 		rpcUser_ = rpcUser;
@@ -65,19 +67,23 @@ public class ControlPanelPresenterWidget extends PresenterWidget<ControlPanelPre
 		view_.setCallback(new ICallback() {
 			@Override
 			public void execute() {
-				rpcUser_.loadXUser(view_.getEmail(), new
-						AsyncCallback<XUser>() {
+				rpcUser_.loadXUser(view_.getEmail(),
+						new AsyncCallback<XUser>() {
 							@Override
 							public void onFailure(Throwable caught) {
-								Window.alert("Failed to load User: " + caught.getMessage());
+								Window.alert("Failed to load User: "
+										+ caught.getMessage());
 								// TODO error handling
 							}
 
 							@Override
 							public void onSuccess(XUser user) {
-								String password = Password.hashPassword(view_.getPassword());
-								if ((user != null) && user.getPassword().equals(password)) {
-									eventBus_.fireEvent(new XUserLoginEvent(user));
+								String password = Password.hashPassword(view_
+										.getPassword());
+								if ((user != null)
+										&& user.getPassword().equals(password)) {
+									eventBus_.fireEvent(new XUserLoginEvent(
+											user));
 								} else {
 									Window.alert("username or password incorrect");
 									// TODO error handling

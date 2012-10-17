@@ -30,7 +30,8 @@ import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
  * 
  * @author David Pichsenmeister
  */
-public class CreatePresenter extends Presenter<CreatePresenter.IView, CreatePresenter.IProxy> {
+public class CreatePresenter extends
+		Presenter<CreatePresenter.IView, CreatePresenter.IProxy> {
 
 	/**
 	 * the interface for the news view
@@ -65,8 +66,6 @@ public class CreatePresenter extends Presenter<CreatePresenter.IView, CreatePres
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
@@ -74,11 +73,11 @@ public class CreatePresenter extends Presenter<CreatePresenter.IView, CreatePres
 	 * @param proxy
 	 *            the proxy
 	 * @param controlPresenter
-	 *            the UserControlWidgetPresenter
+	 *            the UserControlPanelWidgetPresenter
 	 * @param createPresenter
 	 *            the CreateWidgetPresenter
 	 * @param footerPresenter
-	 *            the FooterWidgetPresenter
+	 *            the FooterPresenterWidget
 	 */
 	@Inject
 	public CreatePresenter(EventBus eventBus, IView view, IProxy proxy,
@@ -87,9 +86,12 @@ public class CreatePresenter extends Presenter<CreatePresenter.IView, CreatePres
 			AsyncProvider<FooterPresenterWidget> footerPresenter) {
 		super(eventBus, view, proxy);
 
-		controlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(controlPresenter);
-		createPresenter_ = new CodeSplitProvider<CreateWidgetPresenter>(createPresenter);
-		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(footerPresenter);
+		controlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(
+				controlPresenter);
+		createPresenter_ = new CodeSplitProvider<CreateWidgetPresenter>(
+				createPresenter);
+		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(
+				footerPresenter);
 	}
 
 	@Override
@@ -101,18 +103,19 @@ public class CreatePresenter extends Presenter<CreatePresenter.IView, CreatePres
 	protected void onReveal() {
 		super.onReveal();
 
-		controlPresenter_.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert(caught.toString());
-			}
+		controlPresenter_
+				.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert(caught.toString());
+					}
 
-			@Override
-			public void onSuccess(UserControlPanelWidgetPresenter result) {
-				setInSlot(TYPE_CONTENT_CONTROL, result);
-				result.setActiveIcon(MenuIcon.CREATE);
-			}
-		});
+					@Override
+					public void onSuccess(UserControlPanelWidgetPresenter result) {
+						setInSlot(TYPE_CONTENT_CONTROL, result);
+						result.setActiveIcon(MenuIcon.CREATE);
+					}
+				});
 
 		createPresenter_.get(new AsyncCallback<CreateWidgetPresenter>() {
 			@Override

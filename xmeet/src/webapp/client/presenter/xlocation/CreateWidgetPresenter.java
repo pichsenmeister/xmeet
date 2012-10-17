@@ -27,7 +27,8 @@ import com.gwtplatform.mvp.client.proxy.RevealRootPopupContentEvent;
  * 
  * @author David Pichsenmeister
  */
-public class CreateWidgetPresenter extends PresenterWidget<CreateWidgetPresenter.IView> {
+public class CreateWidgetPresenter extends
+		PresenterWidget<CreateWidgetPresenter.IView> {
 
 	/**
 	 * the interface for the event creator view
@@ -73,16 +74,18 @@ public class CreateWidgetPresenter extends PresenterWidget<CreateWidgetPresenter
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * @param rpcLocation
+	 *            rpc service for database connection
+	 * @param rpcUser
+	 *            rpc service for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
 	 *            the view
 	 */
 	@Inject
-	public CreateWidgetPresenter(RPCLocationAsync rpcLocation, RPCUserAsync rpcUser,
-			EventBus eventBus, IView view) {
+	public CreateWidgetPresenter(RPCLocationAsync rpcLocation,
+			RPCUserAsync rpcUser, EventBus eventBus, IView view) {
 		super(eventBus, view);
 
 		eventBus_ = eventBus;
@@ -159,18 +162,19 @@ public class CreateWidgetPresenter extends PresenterWidget<CreateWidgetPresenter
 	 *            the location entry to save
 	 */
 	private void doSaveLocationEntry(XLocationEntry location) {
-		rpcLocation_.saveXLocationEntry(location, user_, new AsyncCallback<XLocationEntry>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO error handling
-				Window.alert("fail location entry create");
-			}
+		rpcLocation_.saveXLocationEntry(location, user_,
+				new AsyncCallback<XLocationEntry>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						// TODO error handling
+						Window.alert("fail location entry create");
+					}
 
-			@Override
-			public void onSuccess(XLocationEntry result) {
-				Window.alert("location entry saved");
-			}
-		});
+					@Override
+					public void onSuccess(XLocationEntry result) {
+						Window.alert("location entry saved");
+					}
+				});
 	}
 
 	/**
@@ -180,18 +184,19 @@ public class CreateWidgetPresenter extends PresenterWidget<CreateWidgetPresenter
 	 *            the location string to search
 	 */
 	private void doSearchLocation(String search) {
-		rpcLocation_.searchLocations(search, startLoc_, MAX_RESULT, new AsyncCallback<List<XLocation>>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				Window.alert("search fail");
-			}
+		rpcLocation_.searchLocations(search, startLoc_, MAX_RESULT,
+				new AsyncCallback<List<XLocation>>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						// TODO Auto-generated method stub
+						Window.alert("search fail");
+					}
 
-			@Override
-			public void onSuccess(List<XLocation> result) {
-				view_.setLocations(result);
-			}
-		});
+					@Override
+					public void onSuccess(List<XLocation> result) {
+						view_.setLocations(result);
+					}
+				});
 	}
 
 	private void doSaveSetting(XVisibility type) {

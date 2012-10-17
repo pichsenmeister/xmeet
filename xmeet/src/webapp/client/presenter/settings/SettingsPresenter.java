@@ -41,7 +41,8 @@ import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
  * 
  * @author David Pichsenmeister
  */
-public class SettingsPresenter extends Presenter<SettingsPresenter.IView, SettingsPresenter.IProxy> {
+public class SettingsPresenter extends
+		Presenter<SettingsPresenter.IView, SettingsPresenter.IProxy> {
 
 	public static final String NAME = "name";
 	public static final String MAIL = "mail";
@@ -128,8 +129,10 @@ public class SettingsPresenter extends Presenter<SettingsPresenter.IView, Settin
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * @param rpcUser
+	 *            rpc service for database connection
+	 * @param rpcMedia
+	 *            rpc service for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
@@ -138,9 +141,12 @@ public class SettingsPresenter extends Presenter<SettingsPresenter.IView, Settin
 	 *            the proxy to the presenter
 	 * @param controlPresenter
 	 *            the UserControlPresenterWidget
+	 * @param footerPresenter
+	 *            the FooterPresenterWidget
 	 */
 	@Inject
-	public SettingsPresenter(RPCUserAsync rpcUser, RPCMediaAsync rpcMedia, EventBus eventBus, IView view, IProxy proxy,
+	public SettingsPresenter(RPCUserAsync rpcUser, RPCMediaAsync rpcMedia,
+			EventBus eventBus, IView view, IProxy proxy,
 			AsyncProvider<UserControlPanelWidgetPresenter> controlPresenter,
 			AsyncProvider<FooterPresenterWidget> footerPresenter) {
 		super(eventBus, view, proxy);
@@ -149,8 +155,10 @@ public class SettingsPresenter extends Presenter<SettingsPresenter.IView, Settin
 		rpcMedia_ = rpcMedia;
 		view_ = view;
 
-		controlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(controlPresenter);
-		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(footerPresenter);
+		controlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(
+				controlPresenter);
+		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(
+				footerPresenter);
 	}
 
 	@Override
@@ -209,19 +217,20 @@ public class SettingsPresenter extends Presenter<SettingsPresenter.IView, Settin
 
 		user_ = pGatekeeper_.get().getLoggedInUser();
 
-		controlPresenter_.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO error handling
-				Window.alert(caught.toString());
-			}
+		controlPresenter_
+				.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						// TODO error handling
+						Window.alert(caught.toString());
+					}
 
-			@Override
-			public void onSuccess(UserControlPanelWidgetPresenter result) {
-				setInSlot(TYPE_CONTENT_CONTROL, result);
-				result.setActiveIcon(MenuIcon.SETTINGS);
-			}
-		});
+					@Override
+					public void onSuccess(UserControlPanelWidgetPresenter result) {
+						setInSlot(TYPE_CONTENT_CONTROL, result);
+						result.setActiveIcon(MenuIcon.SETTINGS);
+					}
+				});
 
 		footerPresenter_.get(new AsyncCallback<FooterPresenterWidget>() {
 			@Override
@@ -249,26 +258,31 @@ public class SettingsPresenter extends Presenter<SettingsPresenter.IView, Settin
 		view_.setProfileMap(profile);
 
 		HashMap<String, Boolean> notification = new HashMap<String, Boolean>();
-		notification.put(SettingsPresenter.NOTE_EVENT, user_.getSettings().isNotificationEvent());
-		notification.put(SettingsPresenter.NOTE_MSG, user_.getSettings().isNotificationMessage());
-		notification.put(SettingsPresenter.NOTE_LISTENER, user_.getSettings().isNotificationListener());
-		notification.put(SettingsPresenter.NOTE_UPDATE, user_.getSettings().isNotificationUpdates());
+		notification.put(SettingsPresenter.NOTE_EVENT, user_.getSettings()
+				.isNotificationEvent());
+		notification.put(SettingsPresenter.NOTE_MSG, user_.getSettings()
+				.isNotificationMessage());
+		notification.put(SettingsPresenter.NOTE_LISTENER, user_.getSettings()
+				.isNotificationListener());
+		notification.put(SettingsPresenter.NOTE_UPDATE, user_.getSettings()
+				.isNotificationUpdates());
 		view_.setNotificationMap(notification);
 
 		view_.setImage(user_.getImage());
 		view_.setUser(user_);
 
-		rpcMedia_.loadXMediaList(user_, startMedia_, MAX_RESULT, new AsyncCallback<List<XMedia>>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-			}
+		rpcMedia_.loadXMediaList(user_, startMedia_, MAX_RESULT,
+				new AsyncCallback<List<XMedia>>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						// TODO Auto-generated method stub
+					}
 
-			@Override
-			public void onSuccess(List<XMedia> result) {
-				view_.setImageList(result);
-			}
-		});
+					@Override
+					public void onSuccess(List<XMedia> result) {
+						view_.setImageList(result);
+					}
+				});
 	}
 
 	@Override

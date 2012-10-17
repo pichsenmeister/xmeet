@@ -20,7 +20,8 @@ import com.gwtplatform.mvp.client.View;
  * 
  * @author David Pichsenmeister
  */
-public class RegisterWidgetPresenter extends PresenterWidget<RegisterWidgetPresenter.IView> {
+public class RegisterWidgetPresenter extends
+		PresenterWidget<RegisterWidgetPresenter.IView> {
 
 	/**
 	 * the interface for the register view
@@ -48,15 +49,16 @@ public class RegisterWidgetPresenter extends PresenterWidget<RegisterWidgetPrese
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * @param rpcUser
+	 *            rpc service for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
 	 *            the view
 	 */
 	@Inject
-	public RegisterWidgetPresenter(RPCUserAsync rpcUser, EventBus eventBus, IView view) {
+	public RegisterWidgetPresenter(RPCUserAsync rpcUser, EventBus eventBus,
+			IView view) {
 		super(eventBus, view);
 
 		rpcUser_ = rpcUser;
@@ -71,31 +73,37 @@ public class RegisterWidgetPresenter extends PresenterWidget<RegisterWidgetPrese
 		view_.setCallback(new ICallback() {
 			@Override
 			public void execute() {
-				rpcUser_.loadXUser(view_.getEmail(), new AsyncCallback<XUser>() {
-					@Override
-					public void onFailure(Throwable caught) {
-						Window.alert("Failed to check username: " + caught.getMessage());
-					}
+				rpcUser_.loadXUser(view_.getEmail(),
+						new AsyncCallback<XUser>() {
+							@Override
+							public void onFailure(Throwable caught) {
+								Window.alert("Failed to check username: "
+										+ caught.getMessage());
+							}
 
-					@Override
-					public void onSuccess(XUser user) {
-						String password = Password.hashPassword(view_.getPassword());
-						if ((user == null) && view_.validate()) {
-							XUser tmpUser = new XUser();
-							tmpUser.setName(view_.getName().toLowerCase());
-							tmpUser.setEmail(view_.getEmail().toLowerCase());
-							tmpUser.setPassword(password);
-							eventBus_.fireEvent(new XUserRegisterEvent(tmpUser));
-						} else {
-							Window.alert("some information is missing");
-						}
-					}
-				});
+							@Override
+							public void onSuccess(XUser user) {
+								String password = Password.hashPassword(view_
+										.getPassword());
+								if ((user == null) && view_.validate()) {
+									XUser tmpUser = new XUser();
+									tmpUser.setName(view_.getName()
+											.toLowerCase());
+									tmpUser.setEmail(view_.getEmail()
+											.toLowerCase());
+									tmpUser.setPassword(password);
+									eventBus_.fireEvent(new XUserRegisterEvent(
+											tmpUser));
+								} else {
+									Window.alert("some information is missing");
+								}
+							}
+						});
 			}
 		});
 
-		eventBus_.addHandler(XUserRegisterEvent.TYPE, new
-				IXUserRegisterEventHandler() {
+		eventBus_.addHandler(XUserRegisterEvent.TYPE,
+				new IXUserRegisterEventHandler() {
 					@Override
 					public void onXUserRegister(XUserRegisterEvent event) {
 						XUser tmpUser = event.getXUser();

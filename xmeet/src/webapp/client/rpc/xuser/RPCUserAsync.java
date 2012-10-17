@@ -60,7 +60,8 @@ public interface RPCUserAsync {
 	 * @param callback
 	 *            a new instance of AsyncCallback<T>
 	 */
-	public void loadListener(XUser user, XContactStatus status, AsyncCallback<List<XUser>> callback);
+	public void loadListener(XUser user, XContactStatus status,
+			AsyncCallback<List<XUser>> callback);
 
 	/**
 	 * loads list with all users which XUser is listen
@@ -72,7 +73,8 @@ public interface RPCUserAsync {
 	 * @param callback
 	 *            a new instance of AsyncCallback<T>
 	 */
-	public void loadListenTos(XUser user, XContactStatus status, AsyncCallback<List<XUser>> callback);
+	public void loadListenTos(XUser user, XContactStatus status,
+			AsyncCallback<List<XUser>> callback);
 
 	/**
 	 * searches for XUsers with given username or name
@@ -96,10 +98,11 @@ public interface RPCUserAsync {
 	 *            the user who is logged in
 	 * @param listenTo
 	 *            the user to add
-	 * @param AsyncCallback
-	 *            a new instance of AsyncCallback
+	 * @param callback
+	 *            a new instance of AsyncCallback<T>
 	 */
-	public void addContact(XUser listener, XUser listenTo, AsyncCallback<XUser> callback);
+	public void addContact(XUser listener, XUser listenTo,
+			AsyncCallback<XUser> callback);
 
 	/**
 	 * verifies a contact request
@@ -108,10 +111,8 @@ public interface RPCUserAsync {
 	 *            the user who send the contact request
 	 * @param listenTo
 	 *            the user who verifies the listener
-	 * @param status
-	 *            the contact status
-	 * @param AsyncCallback
-	 *            a new instance of AsyncCallback
+	 * @param callback
+	 *            a new instance of AsyncCallback<T>
 	 */
 	public void verifyContactRequest(XUser listener, XUser listenTo,
 			AsyncCallback<XUser> callback);
@@ -123,9 +124,10 @@ public interface RPCUserAsync {
 	 *            the user who is logged in
 	 * @param contact
 	 *            the user to remove
-	 * @param AsyncCallback
-	 *            a new instance of AsyncCallback
+	 * @param callback
+	 *            a new instance of AsyncCallback<T>
 	 */
-	public void removeContact(XUser loggedUser, XUser contact, AsyncCallback<XUser> callback);
+	public void removeContact(XUser loggedUser, XUser contact,
+			AsyncCallback<XUser> callback);
 
 }

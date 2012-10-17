@@ -29,7 +29,8 @@ import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
  * 
  * @author David Pichsenmeister
  */
-public class ContactsPresenter extends Presenter<ContactsPresenter.IView, ContactsPresenter.IProxy> {
+public class ContactsPresenter extends
+		Presenter<ContactsPresenter.IView, ContactsPresenter.IProxy> {
 
 	/**
 	 * the interface for the userpage view
@@ -68,25 +69,27 @@ public class ContactsPresenter extends Presenter<ContactsPresenter.IView, Contac
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * @param rpcUser
+	 *            rpc service for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
 	 *            the view
 	 * @param proxy
 	 *            the proxy
-	 * @param controlPresenter
-	 *            the UserControlPresenterWidget
-	 * @param eventsPresenter
-	 *            the MyEventsPresenterWidget
+	 * @param userControlPresenter
+	 *            the UserControlPanelWidgetPresenter
 	 * @param contactsPresenter
-	 *            the ContactsPresenterWidget
-	 * @param eventCreatorPresenter
-	 *            the EventCreatorPresenterWidget
+	 *            the ContactsWidgetPresenter
+	 * @param footerPresenter
+	 *            the FooterPresenterWidget
 	 */
 	@Inject
-	public ContactsPresenter(RPCUserAsync rpcUser, EventBus eventBus, IView view, IProxy proxy,
+	public ContactsPresenter(
+			RPCUserAsync rpcUser,
+			EventBus eventBus,
+			IView view,
+			IProxy proxy,
 			AsyncProvider<UserControlPanelWidgetPresenter> userControlPresenter,
 			AsyncProvider<ContactsWidgetPresenter> contactsPresenter,
 			AsyncProvider<FooterPresenterWidget> footerPresenter) {
@@ -95,9 +98,12 @@ public class ContactsPresenter extends Presenter<ContactsPresenter.IView, Contac
 		rpcUser_ = rpcUser;
 		view_ = view;
 
-		userControlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(userControlPresenter);
-		contactsPresenter_ = new CodeSplitProvider<ContactsWidgetPresenter>(contactsPresenter);
-		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(footerPresenter);
+		userControlPresenter_ = new CodeSplitProvider<UserControlPanelWidgetPresenter>(
+				userControlPresenter);
+		contactsPresenter_ = new CodeSplitProvider<ContactsWidgetPresenter>(
+				contactsPresenter);
+		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(
+				footerPresenter);
 	}
 
 	@Override
@@ -134,17 +140,18 @@ public class ContactsPresenter extends Presenter<ContactsPresenter.IView, Contac
 			}
 		});
 
-		userControlPresenter_.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert(caught.toString());
-			}
+		userControlPresenter_
+				.get(new AsyncCallback<UserControlPanelWidgetPresenter>() {
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert(caught.toString());
+					}
 
-			@Override
-			public void onSuccess(UserControlPanelWidgetPresenter result) {
-				setInSlot(TYPE_CONTENT_CONTROL, result);
-			}
-		});
+					@Override
+					public void onSuccess(UserControlPanelWidgetPresenter result) {
+						setInSlot(TYPE_CONTENT_CONTROL, result);
+					}
+				});
 	}
 
 	@Override

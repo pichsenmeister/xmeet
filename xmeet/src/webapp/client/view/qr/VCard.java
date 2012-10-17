@@ -7,19 +7,19 @@ import com.google.gwt.visualization.client.visualizations.ImageChart;
 public class VCard extends SimplePanel {
 
 	public VCard() {
-	    ImageChart.Options options = ImageChart.Options.create();    
-	    options.set("cht", "qr");
-	    options.set("chs", "100x100");
-	    options.set("chld", "0");
-	      
-//	    options.set("chl", vcard);
+		ImageChart.Options options = ImageChart.Options.create();
+		options.set("cht", "qr");
+		options.set("chs", "100x100");
+		options.set("chld", "0");
 
-	    DataTable dataTable = DataTable.create();
+		// options.set("chl", vcard);
 
-	    setSize("100px", "100px");
-	    add(new ImageChart(dataTable, options));
+		DataTable dataTable = DataTable.create();
+
+		setSize("100px", "100px");
+		add(new ImageChart(dataTable, options));
 	}
-	
+
 	private String setVCardData(String name, String email, String phone) {
 		String newline = "\n";
 		StringBuilder card = new StringBuilder();
@@ -29,19 +29,20 @@ public class VCard extends SimplePanel {
 		card.append(newline);
 		card.append("N:" + name);
 		card.append(newline);
-//		FN:Max Mustermann
-//		ORG:Wikipedia
-//		URL:http://de.wikipedia.org/
+		// FN:Max Mustermann
+		// ORG:Wikipedia
+		// URL:http://de.wikipedia.org/
 		card.append("EMAIL;TYPE=INTERNET:" + email);
 		card.append(newline);
 		card.append("TEL;VOICE:" + phone);
 		card.append(newline);
-//		ADR;TYPE=intl,work,postal,parcel:;;Musterstraﬂe 1;Musterstadt;;12345;Germany
+		// ADR;TYPE=intl,work,postal,parcel:;;Musterstrasse
+		// 1;Musterstadt;;12345;Germany
 		card.append("END:VCARD");
-		
+
 		return card.toString();
 	}
-	
+
 	public String setICalData(String eventname, String eventdesc) {
 		String newline = "\n";
 		StringBuilder cal = new StringBuilder();
@@ -49,13 +50,13 @@ public class VCard extends SimplePanel {
 		cal.append(newline);
 		cal.append("VERSION:3.0");
 		cal.append(newline);
-//		PRODID:http://www.example.com/calendarapplication/
+		// PRODID:http://www.example.com/calendarapplication/
 		cal.append("METHOD:PUBLISH");
 		cal.append(newline);
 		cal.append("BEGIN:VEVENT");
 		cal.append(newline);
-//		UID:461092315540@example.com
-//		ORGANIZER;CN="Alice Balder, Example Inc.":MAILTO:alice@example.com
+		// UID:461092315540@example.com
+		// ORGANIZER;CN="Alice Balder, Example Inc.":MAILTO:alice@example.com
 		cal.append("SUMMARY:" + eventname);
 		cal.append(newline);
 		cal.append("DESCRIPTION:" + eventdesc);
@@ -71,12 +72,12 @@ public class VCard extends SimplePanel {
 		cal.append("END:VEVENT");
 		cal.append(newline);
 		cal.append("END:VCALENDAR");
-		
+
 		return cal.toString();
 	}
 
 	public SimplePanel getPanel() {
-	    return this;
+		return this;
 	}
 
 }

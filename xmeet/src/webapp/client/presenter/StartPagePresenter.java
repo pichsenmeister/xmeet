@@ -27,14 +27,15 @@ import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 
 /**
  * the presenter for the start page
- *
+ * 
  * @author David Pichsenmeister
  */
-public class StartPagePresenter extends Presenter<StartPagePresenter.IView, StartPagePresenter.IProxy> {
+public class StartPagePresenter extends
+		Presenter<StartPagePresenter.IView, StartPagePresenter.IProxy> {
 
 	/**
 	 * the interface for the start page view
-	 *
+	 * 
 	 * @author David Pichsenmeister
 	 */
 	public interface IView extends View {
@@ -64,9 +65,7 @@ public class StartPagePresenter extends Presenter<StartPagePresenter.IView, Star
 
 	/**
 	 * the constructor
-	 *
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * 
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
@@ -74,9 +73,11 @@ public class StartPagePresenter extends Presenter<StartPagePresenter.IView, Star
 	 * @param proxy
 	 *            the proxy to the presenter
 	 * @param registerPresenter
-	 *            the RegisterPresenterWidget
+	 *            the RegisterWidgetPresenter
 	 * @param controlPresenter
-	 *            the UserControlPresenterWidget
+	 *            the ControlPanelPresenterWidget
+	 * @param contentPresenter
+	 *            the ContentPresenterWidget
 	 * @param footerPresenter
 	 *            the FooterPresenterWidget
 	 */
@@ -87,11 +88,15 @@ public class StartPagePresenter extends Presenter<StartPagePresenter.IView, Star
 			AsyncProvider<ContentPresenterWidget> contentPresenter,
 			AsyncProvider<FooterPresenterWidget> footerPresenter) {
 		super(eventBus, view, proxy);
-		
-		registerPresenter_ = new CodeSplitProvider<RegisterWidgetPresenter>(registerPresenter);
-		controlPresenter_ = new CodeSplitProvider<ControlPanelPresenterWidget>(controlPresenter);
-		contentPresenter_ = new CodeSplitProvider<ContentPresenterWidget>(contentPresenter);
-		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(footerPresenter);
+
+		registerPresenter_ = new CodeSplitProvider<RegisterWidgetPresenter>(
+				registerPresenter);
+		controlPresenter_ = new CodeSplitProvider<ControlPanelPresenterWidget>(
+				controlPresenter);
+		contentPresenter_ = new CodeSplitProvider<ContentPresenterWidget>(
+				contentPresenter);
+		footerPresenter_ = new CodeSplitProvider<FooterPresenterWidget>(
+				footerPresenter);
 	}
 
 	@Override
@@ -137,7 +142,7 @@ public class StartPagePresenter extends Presenter<StartPagePresenter.IView, Star
 				setInSlot(TYPE_CONTENT_LEFT, result);
 			}
 		});
-		
+
 		footerPresenter_.get(new AsyncCallback<FooterPresenterWidget>() {
 			@Override
 			public void onFailure(Throwable caught) {

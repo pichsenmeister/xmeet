@@ -10,14 +10,15 @@ import com.gwtplatform.mvp.client.View;
 
 /**
  * the presenter for the footer
- *
+ * 
  * @author David Pichsenmeister
  */
-public class FooterPresenterWidget extends PresenterWidget<FooterPresenterWidget.IView> {
+public class FooterPresenterWidget extends
+		PresenterWidget<FooterPresenterWidget.IView> {
 
 	/**
 	 * the interface for the footer view
-	 *
+	 * 
 	 * @author David Pichsenmeister
 	 */
 	public interface IView extends View {
@@ -25,15 +26,13 @@ public class FooterPresenterWidget extends PresenterWidget<FooterPresenterWidget
 	}
 
 	private IView view_;
-	
+
 	@Inject
 	private Provider<LoggedInGatekeeper> pGatekeeper_;
 
 	/**
 	 * the constructor
-	 *
-	 * @param rpcService
-	 *            rpcService for database connection
+	 * 
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
@@ -54,8 +53,8 @@ public class FooterPresenterWidget extends PresenterWidget<FooterPresenterWidget
 	@Override
 	protected void onReveal() {
 		super.onReveal();
-		
-		if(pGatekeeper_.get().getLoggedInUser() != null) {
+
+		if (pGatekeeper_.get().getLoggedInUser() != null) {
 			view_.isUserLogged(true);
 		} else {
 			view_.isUserLogged(false);

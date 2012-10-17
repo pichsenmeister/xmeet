@@ -19,7 +19,8 @@ import com.gwtplatform.mvp.client.View;
  * 
  * @author David Pichsenmeister
  */
-public class UsersEventsWidgetPresenter extends PresenterWidget<UsersEventsWidgetPresenter.IView> {
+public class UsersEventsWidgetPresenter extends
+		PresenterWidget<UsersEventsWidgetPresenter.IView> {
 
 	/**
 	 * the interface for the user's events view
@@ -43,10 +44,6 @@ public class UsersEventsWidgetPresenter extends PresenterWidget<UsersEventsWidge
 	/**
 	 * the constructor
 	 * 
-	 * @param rpcEvent
-	 *            rpcService for database connection
-	 * @param rpcPosting
-	 *            rpcService for database connection
 	 * @param eventBus
 	 *            the GWT EventBus
 	 * @param view
@@ -69,7 +66,8 @@ public class UsersEventsWidgetPresenter extends PresenterWidget<UsersEventsWidge
 			public void execute(XUser user) {
 				HashMap<String, String> params = new HashMap<String, String>();
 				params.put("id", user.getUserID().toString());
-				eventBus_.fireEvent(new RevealPlaceEvent(XNameToken.USER, params));
+				eventBus_.fireEvent(new RevealPlaceEvent(XNameToken.USER,
+						params));
 			}
 		});
 	}
